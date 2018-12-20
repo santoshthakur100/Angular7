@@ -1,0 +1,89 @@
+.disable-opacity
+{
+    opacity: 0.5;
+}
+
+
+@keyframes spinner {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.spinner, .spinnernext {
+    background: #da9494 !important;
+    color: transparent !important;
+    border: 1px solid #da9494 !important;
+}
+
+.spinner:before , .spinnernext:before{
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    top: 50%;
+    width: 1.28571429em;
+    left: 50%;
+    height: 1.28571429em;
+    margin-top: -10px;
+    margin-left: -10px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    border-top-color: #db2c2c;
+    animation: spinner .6s linear infinite;
+}
+
+.relative{position: relative;}
+
+.gender-selection input[type=radio]{
+    position: static;
+    display: inline-block;
+    width: auto;
+}
+
+.gender-selection label{
+    display: inline-block;;
+}
+
+.user-from .form-group{margin-bottom: 10px}
+
+.btn-custom{
+    display: inline-block;
+    width: auto;
+    padding: 10px 40px 10px 40px;
+}
+
+
+.forget-password-component{
+    position: absolute; z-index: 10000;
+    top: 20%;
+    left: 50%;
+    margin-left: -150px;
+    border: 1px solid red;
+    width: 500px;   
+    background: #fff;
+    padding: 25px;
+
+    >.container-fluid >.row{
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    .btn-muahh{
+        .fa{
+            font-size: 12px;
+        }
+    }
+
+    .form-group{
+        margin-bottom: 15px;
+        label{
+            display: block;
+        }
+        input{
+            padding: 5px;
+            display: block;
+            width: 100%;
+            border: 1px solid #aa0114;
+        }
+    }
+}

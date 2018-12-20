@@ -1,0 +1,176 @@
+@import "_core/core";
+@import "_lib/lib";
+@import "_app";
+@import "_muahh";
+@import "_sign-up";
+
+//@import '_product-details';  
+//@import '_about';
+//@import '_guides';
+//@import '_offers';
+@import "_payment";
+@import "_review";
+@import "_personal-changing-room";
+
+// .star-rating{
+//     .fa{
+//         color: #aa0114;
+//         cursor: pointer;
+//         -webkit-transition: all 0.3s ease-out;
+//         transition: all 0.3s ease-out;
+//         background: radial-gradient(#ffcc00 10%, #aa0114 60%);
+//         -webkit-background-clip: text;
+//         -webkit-text-fill-color: transparent;
+//     }
+//     &.fs16{
+//         font-size: 16px;
+//     }
+//     &.four{
+
+//     }
+// }
+
+.usert-star-rating, .star-rating {
+    .fa-star, .icon-star-fill {
+        // color: gray;
+        margin: 0 1px;
+        transition: all 0.3s ease-out;
+        background: radial-gradient(#fff 20%, #888 50%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+        // &.unchecked{
+        //  transition: all 0.3s ease-out;
+        //  background: radial-gradient(#fff 10%, #aa0114 60%);
+        //  -webkit-background-clip: text;
+        //  -webkit-text-fill-color: transparent;
+        // }
+        &.checked {
+            // color: #af1f29;
+            transition: all 0.3s ease-out;
+            background: radial-gradient(#aa0114 100%, #aa0114 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        &.fs20 {
+            font-size: 20px;
+        }
+    }
+}
+
+input:focus {
+    outline: none;
+}
+
+.about-carousel, .complete-this-look {
+    .owl-theme .owl-nav [class*='owl-'] {
+        color: #af1527 !important;
+        background: transparent !important;
+        border-radius: 0px;
+    }
+
+    .owl-nav {
+        .owl-prev, .owl-next {
+            display: flex !important;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .owl-prev {
+            left: -64px !important;
+        }
+
+        .owl-next {
+            right: -64px !important;
+        }
+    }
+
+    .chevron-left, .chevron-right {
+        display: inline-block;
+        font: normal normal normal 14px/1 FontAwesome;
+        font-size: inherit;
+        text-rendering: auto;
+        -webkit-font-smoothing: antialiased;
+        font-size: 40px;
+        color: #af1527;
+    }
+
+    .chevron-left {
+        &::before {
+            content: "\f053";
+        }
+    }
+
+    .chevron-right {
+        &::before {
+            content: "\f054";
+        }
+    }
+}
+
+.muahh-container hr,
+.my-account-component hr {
+    border-top: 1px dotted #a90315;
+}
+
+.muahh-container {
+    margin-top: 150px;
+}
+
+.ads
+.owl-carousel .owl-item img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-height: 110px;
+    object-fit: cover;
+}
+
+img.noImg {
+    display: table;
+    margin: 20% auto;
+    opacity: 0.15;
+    vertical-align: middle;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #910311;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.25) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0.25) 75%, transparent 75%, transparent);
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.25) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.25) 50%, rgba(255, 255, 255, 0.25) 75%, transparent 75%, transparent);
+}
+
+.product-item-container {
+    @include breakpoint(xs) {
+        .product-icons {
+            min-height: 390px;
+            background: url("/assets/dress.png") center no-repeat;
+            width: 100%;
+            background-size: 50%;
+        }
+
+        .product-item-container .owl-carousel .owl-item img {
+            display: block;
+            width: 100%;
+            min-height: 390px;
+            object-fit: cover;
+        }
+    }
+
+
+    owl-carousel-child {
+        margin: 0;
+    }
+}

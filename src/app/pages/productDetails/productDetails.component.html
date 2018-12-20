@@ -1,0 +1,47 @@
+<main class="top-space product-details">
+    <div class="body-wrapper">
+        <div class="container-fluid">
+            <div class="product-details-container">
+                <div class="row">
+                    <!-- Tab Link -->
+                    <div class="muahh-product-detail-tab">
+                        <button [class]="productDetailsTab" (click)="goToRoute()" [routerLink]="['/product-details']" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="active">
+                            <div>Product Details</div>
+                            <i class="icon icon-lips"></i> 
+                        </button>
+                        <button [class]="productCollectionTab" (click)="goToRoute('collection')" routerLinkActive="animated fadeIn">
+                            <div>In This Collection</div>
+                            <i class="icon icon-lips"></i>
+                        </button>
+
+                        <!-- As discuessed with Sandeep commented this tab --- Please do not remove it -->
+                        <!-- <button [class]="productRecentTab" (click)="goToRoute('recently-viewed')" routerLinkActive="animated fadeIn">
+                            <div>Recently Viewed</div>
+                            <i class="icon icon-lips"></i>
+                        </button> -->
+
+                        <button [class]="productReviewTab" (click)="goToRoute('review')" routerLinkActive="animated fadeIn">
+                            <div>Reviews</div>
+                            <i class="icon icon-lips"></i>
+                        </button>
+
+                        <button [class]="productSizeTab" (click)="goToRoute('size-chart')" routerLinkActive="animated fadeIn">
+                            <div>Size Chart</div>
+                            <i class="icon icon-lips"></i>
+                        </button>
+
+                        <button [class]="productDeliveryTab" (click)="goToRoute('delivery-return')" routerLinkActive="animated fadeIn">
+                            <div>Delivery & Returns</div>
+                            <i class="icon icon-lips"></i>
+                        </button>
+                    </div>
+
+                  <div class="muahh-product-detail-tabcontent">
+                    <router-outlet></router-outlet>
+                  </div>                    
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

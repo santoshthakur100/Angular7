@@ -1,0 +1,60 @@
+.tabcontent {
+    display: block;
+    padding: 12px;
+    .colors {
+        margin: 0;
+        float: left;
+        li {
+            padding: 10px;
+            box-shadow: 0 2px 2px #888;
+            display: inline-block;
+            margin: 5px 0;
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+    }
+}
+
+
+.product-discription {
+    .price-info {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .list-default {
+        list-style: none;
+        padding: 0px;
+        margin-left: 10px;
+        li {
+            padding: 5px 0;
+            margin: 0px;
+            .fa {
+                color: #aa0114;
+            }
+        }
+    }
+    table {
+        font-size: 12px;
+    }
+    h1 {
+        font-size: 28px;
+    }
+    .txt {
+        color: #9e9ba1;
+    }
+    .product-option {
+        margin: 10px 0px;
+        .product-select {
+            width: 145px;
+            float: left;
+            margin-right: 15px;
+            label {
+                font-weight: normal;
+                margin-bottom: 7px;
+                display: block;
+            }
+        }
+    }
+}

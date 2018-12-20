@@ -1,0 +1,12 @@
+@import "bootstrap/bootstrap";
+@import "bootstrap/table";
+@import "colors";
+@import "mixins";
+@import "breakpoints";
+@import "buttons";
+
+.body-wrapper{
+	width: 100%;
+	max-width: 1366px;
+	margin: 0 auto;
+}

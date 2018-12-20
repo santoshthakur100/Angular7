@@ -1,0 +1,160 @@
+<!-- <div class="row panel open-panel">
+  <div class="pay-body">
+      <div class="muahh-confirm-order">
+          <table class="table table-striped">
+              <thead>
+                  <tr>
+                      <th>Product</th>
+                      <th>Discription</th>
+                      <th>Quantity</th>
+                      <th>Price</th>
+                      <th>Donation</th>
+                      <th>Delivery Details</th>
+                      <th class="text-right">Sub Total</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td>
+                          <img width="80" src="assets/fixed.jpg" title="" alt="">
+                      </td>
+                      <td>
+                          <p>Sexy Long Line Plunge Bra and Sexy Thong</p>
+                          <p>Size :
+                              <span> 30A</span>
+                          </p>
+                          <p>Color :
+                              <span> Gray</span>
+                          </p>
+                      </td>
+                      <td>
+                          <select class="form-control" name="" id="">
+                              <option value="">1</option>
+                              <option value="">2</option>
+                              <option value="">3</option>
+                          </select>
+                      </td>
+                      <td>
+                          100
+                      </td>
+                      <td>
+                          <select class="form-control" name="" id="">
+                              <option value="">50</option>
+                              <option value="">0</option>
+                              <option value="">10</option>
+                              <option value="">20</option>
+                              <option value="">30</option>
+                          </select>
+                      </td>
+                      <td class="text-left">
+                          <p>Free</p>
+                          <p>Delivered in 2 to 3 BusinessDays</p>
+                          <span>( 14 Days of Exchange )</span>
+                      </td>
+                      <td class="text-right">
+                          <p class="doller">250</p>
+                          <span>30.00 </span>
+                      </td>
+                  </tr>
+              </tbody>
+              <thead>
+                  <tr>
+                      <th class="text-right" colspan="6">
+                          <p>Cart Total</p>
+                          <p>(Inc standard Delivery Charges)</p>
+                      </th>
+                      <th class="text-right">
+                          <p class="doller">500</p>
+                          <p class="doller">150</p>
+                      </th>
+                  </tr>
+              </thead>
+          </table>
+      </div>
+  </div>
+</div> -->
+
+
+<!-- ********************************************************************* -->
+
+<div class="row panel open-panel" >
+    <div class="pay-body">
+        <div class="muahh-confirm-order">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th style="width:10%">Product</th>
+                        <th style="width:30%">Discription</th>
+                        <th style="width:10%">Quantity</th>
+                        <th style="width:10%">Price</th>
+                        <th style="width:10%">Donation</th>
+                        <th style="width:40%">Delivery Details</th>
+                        <th style="width:10%" class="text-right">Sub Total</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let cartdetails of cartDetails | slice:0">
+                    <tr>
+                        <td>
+                            <img width="80" [src]="cartdetails.products.thumbnail" title="" alt="">
+                        </td>
+                        <td>
+                            <p>{{cartdetails.products.name}}</p>
+                            <p>Size :
+                                <span> 30A</span>
+                            </p>
+                            <p>Color :
+                                <span> Gray</span>
+                            </p>
+                        </td>
+                        <td>
+                            <select class="form-control" name="(cartdetails.qty)" id="">
+                                <option [value]="0">{{cartdetails.qty}}</option>
+                                <option [value]="1">1</option>
+                                <option [value]="2">2</option>
+                                <option [value]="3">3</option>
+                                <option [value]="4">4</option>
+                                <option [value]="5">5</option>
+                            </select>
+                        </td>
+                        <td>
+                                {{cartdetails.variations.price}}
+                        </td>
+                        <td>
+                            <select class="form-control" name="" id="">
+                                <option value="">50</option>
+                                <option value="">0</option>
+                                <option value="">10</option>
+                                <option value="">20</option>
+                                <option value="">30</option>
+                            </select>
+                        </td>
+                        <td class="text-left">
+                            <p>Free</p>
+                            <p>Delivered in 2 to 3 BusinessDays</p>
+                            <span>( 14 Days of Exchange )</span>
+                        </td>
+                        <td class="text-right">
+                            <p class="doller">&pound; 250</p>
+                            <span>&pound; 30.00 </span>
+                        </td>
+                    </tr>
+                </tbody>
+                <thead>
+                    <tr>
+                        <th class="text-right" colspan="6">
+                            <p>Cart Total</p>
+                            <p>(Inc standard Delivery Charges)</p>
+                        </th>
+                        <th class="text-right">
+                            <p class="doller">&pound; {{SubTotal}}</p>
+                            <p class="doller">&pound; 150</p>
+                        </th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+  </div>
+
+<!-- ********************************************************************* -->
+

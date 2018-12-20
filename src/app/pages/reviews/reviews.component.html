@@ -1,0 +1,325 @@
+<div class="body-wrapper">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-6 col-md-4">
+        <div class="overall-satisfaction">
+          <div style="margin-bottom:10px;">
+            <img class="img-responsive" src="/assets/overall-satisfaction.png" alt="Overall Satisfaction" />
+          </div>
+          <span class="star-rating">
+            <i *ngFor="let s of [1, 2, 3, 4, 5]; let i = index " class="fa icon-star-fill" [ngClass]="{ 'checked': (i + 1) <= roundValue(avgStar) == true ? 'checked' : ''}">
+            </i>
+          </span>
+          <p style="font-style:18px;"><b>{{avgStar}}</b> rating Based on {{totalReviews}} Customer Reviews by.</p>
+        </div>
+
+        <!-- Start : Review by option -->
+        <ul class="see-reviews-by">
+          <li><h2>See Reviews By</h2></li>
+          <li><a href="javascript:void(0)">All Reviews <small>(62)</small></a></li>
+          <li><a href="javascript:void(0)">Product Quality <small>(62)</small></a></li>
+          <li><a href="javascript:void(0)">Customer Service <small>(62)</small></a></li>
+          <li><a href="javascript:void(0)">Shipping & Delivery <small>(62)</small></a></li>
+        </ul>
+        <!-- End : Review by option -->
+        
+        <div class="review-star-rating">
+          <div class="wrapper">
+            <div class="side">
+              <div> 5 star</div>
+            </div>
+            <div class="middle" (click)="filterData(fiveStar[0])">
+              <div class="bar-container">
+                <div class="bar-5"></div>
+              </div>
+            </div>
+            <div class="side right">
+              <div>{{fiveStarCount}}</div>
+            </div>
+          </div>
+          <div class="wrapper">
+          <div class="side">
+            <div>4 star</div>
+          </div>
+          <div class="middle" (click)="filterData(fourStar[0])">
+            <div class="bar-container">
+              <div class="bar-4"></div>
+            </div>
+          </div>
+          <div class="side right">
+            <div>{{fourStarCount}}</div>
+          </div>
+          </div>
+          <div class="wrapper">
+          <div class="side">
+            <div>3 star</div>
+          </div>
+          <div class="middle" (click)="filterData(threeStar[0])">
+            <div class="bar-container">
+              <div class="bar-3"></div>
+            </div>
+          </div>
+          <div class="side right">
+            <div>{{threeStarCount}}</div>
+          </div>
+          </div>
+          <div class="wrapper">
+          <div class="side">
+            <div>2 star</div>
+          </div>
+          <div class="middle" (click)="filterData(twoStar[0])">
+            <div class="bar-container">
+              <div class="bar-2"></div>
+            </div>
+          </div>
+          <div class="side right">
+            <div>{{twoStarCount}}</div>
+          </div>
+          </div>
+          <div class="wrapper">
+          <div class="side">
+            <div>1 star</div>
+          </div>
+          <div class="middle" (click)="filterData(oneStar[0])">
+            <div class="bar-container">
+              <div class="bar-1"></div>
+            </div>
+          </div>
+          <div class="side right">
+            <div>{{oneStarCount}}</div>
+          </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-7 col-md-push-1" style="margin-top:118px;">
+        <h2 class="website-review"><span>W</span>EBSITE <span>R</span>EVIEW</h2>
+        <div class="review-component">
+          <div class="row" *ngFor="let review of reviewDetails.data | slice:0">
+            <div class="col-xs-12">
+              <div class="review-block">
+                <div class="row">
+                  <div class="col-sm-2">
+                    <img src={{review.user.avatar}} class="img-rounded" style="width: 50px;">
+                    <div class="review-block-name">
+                      <a href="#"> {{review.user.user_name}} </a>
+                    </div>
+                    <div class="review-block-date">{{review.created_at | date:'mediumDate'}}
+                    </div>
+                  </div>
+                  <div class="col-sm-10">
+                    <div class="review-block-rate">
+                      <div>
+                        <span class="star-rating">
+                          <i *ngFor="let s of [1, 2, 3, 4, 5]; let i = index " class="fa icon-star-fill" [ngClass]="{ 'checked': (i + 1) <= review.rating == true ? 'checked' : ''}">
+                          </i>
+                        </span>
+                      </div>
+                      
+                      <div class="review-block-title"> {{review.review}} </div>
+                      <div class="review-block-description"> {{review.description}}</div>
+                    </div>
+                  </div>
+                  <!-- <div class="col-sm-7">
+                    <div class="review-block-title"> {{review.review}} </div>
+                    <div class="review-block-description"> {{review.description}}</div>
+                  </div> -->
+                </div>
+                <hr />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- 
+  <div class="container-fluid">
+    <h2 class="website-review"><span>W</span>EBSITE <span>R</span>EVIEW</h2>
+    <hr>
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="overall-satisfaction">
+          <h2 class="heading">Overall Satisfaction Rate</h2>
+         
+          <span class="star-rating">
+            <i *ngFor="let s of [1, 2, 3, 4, 5]; let i = index " class="fa icon-star-fill" [ngClass]="{ 'checked': (i + 1) <= roundValue(avgStar) == true ? 'checked' : ''}">  </i>   
+          </span>
+          <div>
+            <h2 class="avgStar">{{avgStar}}<sup>%</sup></h2>
+          </div>
+          <p>Based on {{totalReviews}} Customer Reviews by.</p>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <ul class="see-reviews-by">
+          <li><h2>See Reviews By</h2></li>
+          <li><a href="javascript:void(0)">All Reviews <small>(62)</small></a></li>
+          <li><a href="javascript:void(0)">Product Quality <small>(62)</small></a></li>
+          <li><a href="javascript:void(0)">Customer Service <small>(62)</small></a></li>
+          <li><a href="javascript:void(0)">Shipping & Delivery <small>(62)</small></a></li>
+        </ul>
+      </div>
+      <div class="col-sm-4">
+        <div>
+          <div class="side">
+            <div> 5 star</div>
+          </div>
+          <div class="middle" (click)="filterData(fiveStar[0])">
+            <div class="bar-container">
+              <div class="bar-5"></div>
+            </div>
+          </div>
+          <div class="side right">
+            <div>{{fiveStarCount}}</div>
+          </div>
+          <div class="side">
+            <div>4 star</div>
+          </div>
+          <div class="middle"  (click)="filterData(fourStar[0])">
+            <div class="bar-container">
+              <div class="bar-4"></div>
+            </div>
+          </div>
+          <div class="side right">
+            <div>{{fourStarCount}}</div>
+          </div>
+          <div class="side">
+            <div>3 star</div>
+          </div>
+          <div class="middle"  (click)="filterData(threeStar[0])">
+            <div class="bar-container">
+              <div class="bar-3"></div>
+            </div>
+          </div>
+          <div class="side right">
+            <div>{{threeStarCount}}</div>
+          </div>
+          <div class="side">
+            <div>2 star</div>
+          </div>
+          <div class="middle"  (click)="filterData(twoStar[0])">
+            <div class="bar-container">
+              <div class="bar-2"></div>
+            </div>
+          </div>
+          <div class="side right">
+            <div>{{twoStarCount}}</div>
+          </div>
+          <div class="side">
+            <div>1 star</div>
+          </div>
+          <div class="middle" (click)="filterData(oneStar[0])">
+            <div class="bar-container">
+              <div class="bar-1"></div>
+            </div>
+          </div>
+          <div class="side right">
+            <div>{{oneStarCount}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<hr>
+<br>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="review-component">
+          <div class="row" *ngFor="let review of reviewDetails.data | slice:0">
+            <div class="col-xs-12" >
+              <div class="review-block">
+                <div class="row" >
+                  <div class="col-sm-1">
+                    <img src={{review.user.avatar}} class="img-rounded" style="width: 50px;">
+                    <div class="review-block-name">
+                      <a href="#"> {{review.user.user_name}}  </a>
+                    </div>
+                    <div class="review-block-date" >{{review.created_at | date:'mediumDate'}}
+                      <div *ngFor="let createdDate of createAtdiffFromToday | slice:0">
+                      <br />{{createdDate}} day ago 
+                    </div>
+                    </div>
+                  </div>
+                   <div class="col-sm-2">
+                     <div class="review-block-rate">
+                        <span class="star-rating">
+                            <i *ngFor="let s of [1, 2, 3, 4, 5]; let i = index " class="fa icon-star-fill" [ngClass]="{ 'checked': (i + 1) <= review.rating == true ? 'checked' : ''}">  </i>   
+                        </span>
+                      </div> 
+                  </div>
+                  <div class="col-sm-9">
+                      <div class="review-block-title"> {{review.review}} </div>
+                      <div class="review-block-description"> {{review.description}}</div>
+                  </div>
+                </div>
+                <hr />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+  <br>
+  <hr>
+  <br>
+
+  <div class="container-fluid" *ngIf="IsRegistered">
+    <form >
+      <div class="row">
+          <!-- <h2 class="website-review"><span>P</span>ORTAL <span>R</span>EVIEW</h2> -->
+        <!-- <div>
+          <h1 class="heading">Please share portal review</h1>
+        </div> -->
+        <div class="col-25">
+          <label for="subject">Subject</label>
+        </div>
+        <div class="col-75">
+          <input Name="subject" [(ngModel)]="subject" type="text" id="subject" name="Your Subject" placeholder="Your Subject..">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-25">
+          <label for="message">Message</label>
+        </div>
+        <div class="col-75">
+          <textarea name="message" [(ngModel)]="message" id="message" placeholder="What you think about our site.."
+            style="height:200px"></textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-25">
+          <label for="stars">Stars</label>
+        </div>
+        <div class="col-75">
+          <select name="stars" [(ngModel)]="stars">
+            <option [value]="1" [selected]="selected"> 1</option>
+            <option [value]="2">2</option>
+            <option [value]="3">3</option>
+            <option [value]="4">4</option>
+            <option [value]="5">5</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <input type="submit" value="Post Your Review" (click)="addReview()">
+      </div>
+    </form>
+  </div>
+</div>

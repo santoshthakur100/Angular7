@@ -1,0 +1,27 @@
+#muahhBottomBar{
+	display: none
+}
+.muahhTab a {
+	text-decoration: none !important
+}
+.muahh-top-bottom .muahhTab span.text{
+	font-weight: 600
+}
+.footer-social li{
+	vertical-align: top 
+}
+
+.cookies-policy{
+	position: fixed;
+	z-index: 99999;
+	bottom: 0;
+	width: 100%;
+	padding: 10px 10px;
+	background: #ffcc00;
+	font-size: 12px;
+	color: #000;
+	text-align: center;
+	.fa{
+		cursor: pointer;
+	}
+}

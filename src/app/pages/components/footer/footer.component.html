@@ -1,0 +1,203 @@
+<div *ngIf="!cookiespolicy">
+<section class="cookies-policy" *ngIf="!acceptCookie">
+  <div>We use cookies to give you the best experience on our website. By continuing to browse you agree to our cookie policy.
+    <!-- (click)="cookiesTest()" -->
+    <a href="javascript:void(0)">Find out here how to manage your cookies.</a><input type="checkbox" (click)="cookiesAccept()" formControlName="chkCookie"/> <a href="javascript:void(0)">accept</a>
+    <!-- <i class="cursor"  class="fa fa-close"></i> -->
+  </div>
+</section>
+</div>
+<footer class="container-fluid muahh-footer">
+  <div class="row muahh-top-bottom fixed-bottom" id="muahhBottomBar">
+    <div class="col-sm-10">
+      <div class="row">
+
+        <div class="col-sm-3 text-center">
+          <div class="muahhTab" title="Wish List">
+            <a [routerLink]="['/wishlist']">
+              <span class="text">WISH LIST</span>
+              <i class="icon icon-charaty"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-sm-3 text-center" title="website Review">
+          
+          <div class="muahhTab" style="padding:4px">
+            <!-- <span class="star-rating fs20">
+              <i class="fa icon-star-fill checked"></i>
+              <i class="fa icon-star-fill checked"></i>
+              <i class="fa icon-star-fill checked"></i>
+              <i class="fa icon-star-fill checked"></i>
+              <i class="fa icon-star-fill"></i> 
+            </span> -->
+              <a [routerLink]="['/aboutus']" [queryParams]="{ footer: 'True' }">
+                <span class="star-rating fs20">
+                  <i *ngFor="let s of [1, 2, 3, 4, 5]; let i = index" class="fa icon-star-fill" [ngClass]="{ 'checked': (i + 1) <= avgStar == true ? 'checked' : ''}">  </i>   
+                </span>
+              </a>
+            </div>
+         
+        </div>
+     
+        <div class="col-sm-3 text-center">
+          <div class="muahhTab social-media">
+            <a href="https://www.instagram.com/?hl=en" target="_blank" title="Instagram">
+              <i class="fa fa-instagram"></i>
+            </a>
+            <a href="https://accounts.snapchat.com/" target="_blank" title="Snapchat">
+              <i class="fa fa-snapchat"></i>
+            </a>
+            <a title="Pinterest" href="javascript:void((function()%7Bvar%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','http://assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)%7D)());">
+              <i class="fa fa-pinterest-p"></i>
+            </a>
+            <a title="Google" href="https://plus.google.com/share?url={{muahhurl}}" target="_blank">
+              <i class="fa fa-google-plus"></i>
+            </a>
+            <a href="#" target="_blank" title="Email">
+              <i class="fa fa-envelope"></i>
+            </a>
+            <a title="Twitter" target="_blank" href="https://twitter.com/share?url={{products?.thumbnail}}">
+              <i class="fa fa-twitter"></i>
+            </a>
+            <a href="http://www.facebook.com/sharer.php?u={{muahhurl}}" title="Facebook" target="_blank">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-sm-3 text-center">
+          <div class="muahhTab" title="Personal changing room">
+            <a [routerLink]="['/changing-room']">
+              <span class="text">PERSONAL CHANGING ROOM</span>&emsp;
+              <i class="icon icon-trail-room-grey"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-2 text-center">
+      <div class="muahhTab" title="How its works">
+        <a [routerLink]="['/guides']">
+          <span class="text">HOW IT WORKS?</span> &emsp;
+          <i class="icon icon-youtube"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="red">IF YOU’RE HERE MAYBE YOU’RE LOOKING FOR THESE? </h3>
+  <div class="row">
+    <div class="col-md-11">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="row">
+            <div class="col-xs-12 col-sm-6">
+              <div class="ftr-bottom-box">
+                <h4>Our Company</h4>
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    <a [routerLink]="['/aboutus']"> About Muahh Ltd. </a>
+                  </li>
+                  <li class="list-group-item">
+                    <a [routerLink]="['/ethical-trading']">Ethical Trading</a>
+                  </li>
+                  <li class="list-group-item">
+                    <a [routerLink]="['/career']">Careers</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-6">
+              <div class="ftr-bottom-box">
+                <h4>Customer Services</h4>
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    <a [routerLink]="['/myaccount']">My Account</a>
+                  </li>
+                  <li class="list-group-item">
+                    <a [routerLink]="['/contact']">Contact Us</a>
+                  </li>
+                  <li class="list-group-item">
+                    <a [routerLink]="['/delivery-information']">Delivery information</a>
+                  </li>
+                  <li class="list-group-item">
+                    <a [routerLink]="['/order-tracking']">Order Tracking</a>
+                  </li>
+                  <li class="list-group-item">
+                    <a [routerLink]="['/return']">Returns</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="row">
+            <div class="col-xs-12 col-sm-6">
+              <div class="ftr-bottom-box">
+                <h4>Help</h4>
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    <a [routerLink]="['/faq']">FAQs</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-6">
+              <div class="ftr-bottom-box">
+                <h4>Everything Else</h4>
+                <ul class="list-group">
+                  <li class="list-group-item">
+                    <a href="#" data-toggle="modal" data-target="#termNndCondition">Terms &amp; Conditions</a>
+                  </li>
+                  <li class="list-group-item">
+                    <a href="#" data-toggle="modal" data-target="#privacypolicy">Privacy &amp; Cookies</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</footer>
+
+<!-- Modal -->
+<div class="modal fade" id="termNndCondition" role="dialog">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h3 class="modal-title">TERMS, CONDITIONS AND NOTICES <small>Important Legal Information</small></h3>
+      </div>
+      <div class="modal-body">
+        <app-termsConditions> </app-termsConditions>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="privacypolicy" role="dialog">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Privacy and Policy</h4>
+      </div>
+      <div class="modal-body">
+        <app-privacyCookies> </app-privacyCookies>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

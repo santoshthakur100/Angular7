@@ -1,0 +1,24 @@
+.product-confirmation{
+  //  border: 2px solid red;
+    padding: 10px;
+    //  table{
+    //     border: 2px solid green;
+    //     padding: 10px;
+    // }
+    .inner-table{
+        border: 2px solid gray;
+        td{
+            padding: 3px;
+        }
+    }
+    .displayAddressDiv, ul{
+        margin: 0;
+        list-style: none;
+        padding: 0;
+        li{
+            margin: 0;
+            list-style: none;
+            padding: 0;
+        }
+    }
+}

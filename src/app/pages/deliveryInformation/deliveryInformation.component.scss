@@ -1,0 +1,32 @@
+.top-space-delivery{
+	margin-top: 120px
+}
+
+.contact-component{
+	.head-content{
+		h1{
+			font-size: 28px;
+		}
+		p{
+			font-size: 14px;
+		}
+	}
+
+	.email-wrapper{
+		h3{
+			font-size: 16px;
+			font-weight: bold;
+			color: #aa0114;
+		}
+		div{
+			font-size: 14px;
+		}
+		ul.list{
+			padding: 0;
+			padding-left: 20px;
+			li{
+				line-height: 20px;
+			}
+		}
+	}
+}

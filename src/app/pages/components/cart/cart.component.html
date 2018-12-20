@@ -1,0 +1,59 @@
+<!-- Start : Shopping Cart Component -->
+<div class="shopping-cart-component hide">
+    <i class="close fa fa-close" (click)="closeCart()"></i>
+    <div class="container-fluid">
+
+        <div class="sub-total">
+            Sub Total : &pound; {{totalAmount}}
+        </div>
+        <div class="product-sign-btn" style="padding: 10px 0">
+            <div class="categories1" *ngIf="cartLength <= 0">
+                <div>
+                    <button class="in-out-btn fluid btn-muahh" *ngIf="!user || user?.role == 'guest'" (click)="openLoginModal()">Sign In</button>
+                </div>
+                <div style="margin-top:10px">
+                    <button class="in-out-btn fluid btn-muahh" (click)="closeCart()">Continue Shopping</button>
+                </div>
+            </div>
+            <div class="categories2" *ngIf="cartLength > 0">
+                <div>
+                    <button class="in-out-btn btn-muahh" *ngIf="!user || user?.role == 'guest'" (click)="openLoginModal()">Sign In</button>
+                    <button class="in-out-btn btn-muahh" (click)="moveToCheckout()">{{ (user != 'guest')? 'Check Out': 'Check Out as a guest'}}</button>
+                </div>
+                <div style="margin-top:10px">
+                    <button class="in-out-btn btn-muahh fluid" (click)="closeCart()">Continue Shopping</button>
+                </div>
+            </div>
+        </div>
+        <div class="repeat-cart" *ngFor="let product of cart" >
+            <div class="row">
+                <div class="col-sm-5 col-xs-5" style="padding-right: 0;" >
+                    <figure> 
+                        <a [routerLink]="['/product-details', product?.product_id]">
+                            <img class="img-responsive" [src]="product?.products?.thumbnail" alt="{{x}}" />
+                        </a>
+                    </figure>
+                </div>
+                <div class="col-sm-7 col-xs-7">
+                    <div class="fs16 red"><a [routerLink]="['/product-details', product?.product_id]">{{product?.products?.name}}</a></div>
+                    <div class="a1 fs12 mb10"> {{product?.variations?.sku}} | In Stock </div>
+                    <div class="a2 fs12"><span>Color </span> <span>{{product?.products?.Color}} </span> </div>
+                    <div class="a2 fs12"> <span>Size </span> <span> {{product?.products?.Size}}</span> </div>
+                    <!-- <div class="a2 fs12"> <span>Color </span> <span>{{product?.products?.default_variant_options[1].name}} </span> </div>
+                    <div class="a2 fs12"> <span>Size </span> <span> {{product?.products?.default_variant_options[0].name}}</span> </div> -->
+                    <div class="a2 fs12"> <span>Qty </span> <span> {{product?.qty}}</span> </div>
+                    <div class="a1 mt10 price red"> &pound; {{product?.variations?.price}} </div>  
+                </div>
+            </div>
+            <div class="row sec2">
+                <div class="col-xs-12 text-center">
+                    <button class="btn fluid btn-muahh-bdr pad" (click)="increaseItemQty(product)"><i class="fa fa-plus"></i></button>
+                    <button class="btn fluid btn-muahh-bdr pad" (click)="decreaseItemQty(product)"><i class="fa fa-minus"></i></button>
+                    <button class="btn fluid btn-muahh-bdr pad" (click)="removeCartItem(product)">Remove</button>
+                </div>
+            </div>
+        </div>
+        <div class="a1 mt10 price red" *ngIf="cartLength <= 0">YOUR CART IS EMPTY</div>
+    </div>
+</div>
+<!-- End : Shopping Cart Component  -->

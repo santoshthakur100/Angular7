@@ -1,0 +1,21 @@
+.muahh-term-condition{
+    // h2{
+    //     margin-top: 5px;
+    //     font-size: 16px;
+    // }
+    h3{
+        font-size: 14px; font-weight: bold;
+    }
+    .muahh-term-condition--content{
+        .scrollable{
+            height: 400px;
+            padding-right: 25px;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+        p{
+            line-height: 26px;
+        }
+    }
+
+}

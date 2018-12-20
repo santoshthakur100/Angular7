@@ -1,0 +1,27 @@
+// declare color variables here
+$black:        #000000;
+$dark-grey:    #4F4C43; //rgb(79,76,67)
+$white:        #ffffff;
+$gold:         #B45F1A;
+
+.red{
+    color: #aa0114;
+}
+.gray{
+    color: #4F4C43;
+}
+.red-bg{
+    background: #aa0114;
+    color: #fff;
+}
+
+.linkingDemo{
+    .list-group{
+        .list-group-item{
+            display: block;
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+        }
+    }
+}

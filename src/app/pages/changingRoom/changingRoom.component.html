@@ -1,0 +1,117 @@
+<main class="top-space-pcr mt-100">
+    <div class="body-wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="changing-room-component">
+                    <div class="changing-room-hall">
+                        <div class="changing-room-model">
+                            <div class="changing-room-model-popup">
+                                <i class="fa fa-close" id="closeItem"></i>
+                                <div class="popup-message">
+                                    <div class="f1">Try Before You Buy</div>
+                                    <div class="f2">With Our Sophisticated and Secure</div>
+                                    <div class="f3  ">Personal Changing Room</div>
+
+
+                                    <div class="form-inline mb15">
+                                        <div class="form-group">
+                                            <input class="form-control" type="tel" placeholder="Enter Your Mobile Number" />
+                                        </div>
+                                    </div>
+
+                                    <div class="form-inline mb15">
+                                        <div class="form-group">
+                                            <input size="2" class="form-control" type="type" maxlength="4" placeholder="0 1 2 3" />
+                                        </div>
+                                    </div>
+
+
+                                    <div class="mb15">
+                                        <a href="#">RESENT OTP ?</a>
+                                    </div>
+                                    <div class="popup-message-btns">
+                                        <button class="btn btn-muahh">
+                                            Continue Shopping
+                                        </button>
+                                        <button class="btn btn-muahh">
+                                            Proceed To Checkout
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <canvas style="width: 500px; height: 650px;" id="canvas"></canvas>
+
+                            <!-- <div class="threesixty car">
+                            <div class="spinner">
+                                <span>0%</span>
+                            </div>
+                            <ol class="threesixty_images"></ol>
+                        </div> -->
+                        </div>
+
+                        <div class="top-left">
+                            <ul class="room-icons" id="changingRoon">
+                                <li class="active">
+                                    <a title="Changing Room" href="javascript:void(0)"><i class="icon icon-Icon-trail-room"></i></a>
+                                </li>
+                                <li>
+                                    <a title="Wardrobe" href="javascript:void(0)"><i class="icon icon-Icon-wardrobe2"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="top-right">
+                            <div class="muahh-zoomin">
+                                <a href="javascript:void(0)" id="closeChangingRoom" style="display:none">
+                                    <i class="icon icon-close"></i>
+                                </a>
+                                <a href="javascript:void(0)" id="zoomChangingRoom">
+                                    <i class="icon icon-zoom_out_map"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="bottom-left">
+                            <div class="my-items">
+                                <div class="my-item-component my-item-carousel">
+                                    <a href="{{(img?.thumbnail)? img?.thumbnail: img?.products?.thumbnail}}" *ngFor="let img of myPCRData" class="item">
+                                        <img [src]="(img?.thumbnail)? img?.thumbnail: img?.products?.thumbnail" alt="No Image" />
+                                    </a>
+                                </div>
+                                <div class="txt text-center">My Changing Room</div>
+                            </div>
+                        </div>
+                        <div class="bottom-right">
+                            <div class="my-items">
+                                <div class="my-item-component my-item-carousel">
+                                    <div>
+                                        <a href="{{(wishlist?.thumbnail)? wishlist?.thumbnail : wishlist?.products?.thumbnail}}"
+                                            *ngFor="let wishlist of myWishListItems" class="item">
+                                            <img [src]="(wishlist?.thumbnail)? wishlist?.thumbnail : wishlist?.products?.thumbnail"
+                                                alt="Image 1" />
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="txt text-center">Wish List</div>
+                            </div>
+                        </div>
+
+                        <!-- Start : Cube Model House -->
+                        <div class="cube-house">
+                            <div id="cubeBox" class="show-front">
+                                <figure class="front"></figure>
+                                <figure class="back"></figure>
+                                <figure class="right"></figure>
+                                <figure class="left"></figure>
+                                <figure class="top"></figure>
+                                <figure class="bottom"></figure>
+                            </div>
+                        </div><!-- End : Cube Model House -->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</main>

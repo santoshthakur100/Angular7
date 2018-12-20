@@ -1,0 +1,194 @@
+// .top-space-offers {
+//     margin-top: 110px;
+//     @include breakpoint(xs) {
+//         margin-top: 55px;
+//     }
+// }
+
+// .offers-component {
+//     .muahh-offer-zone {
+//         .row {
+//             margin-left: 0;
+//             margin-right: 0;
+//             [class*=col-sm] {
+//                 padding-left: 5px;
+//                 padding-right: 5px;
+//                 margin-bottom: 0px;
+//                 @include breakpoint(xs) {
+//                     margin-bottom: 10px;
+//                 }
+//             }
+//         }
+//         .offersTxt {
+//             padding: 25px;
+//             text-align: center;
+//             p {
+//                 margin: 5px 0;
+//             }
+//             a {
+//                 color: #910311;
+//             }
+//         }
+//         .offersImg {
+//             width: 100%;
+//         }
+//         .offers {
+//             width: 100%;
+//             height: 600px;
+//             .offers-image-10 {
+//                 height: 80%;
+//                 background: #beeb9f;
+//                 overflow: hidden;
+//             }
+//             .offers-price-10 {
+//                 background-color: #beeb9f;
+//                 color: darken(#beeb9f, 30);
+//                 height: 20%;
+//                 border: 1px solid #ccc;
+//                 border-top-width: 0;
+//                 padding: 20px;
+//                 white-space: normal;
+//             }
+//             .offers-image-25 {
+//                 height: 75%;
+//                 background: #ff6138;
+//                 overflow: hidden;
+//             }
+//             .offers-price-25 {
+//                 background-color: #ff6138;
+//                 color: lighten(#ff6138, 20);
+//                 height: 25%;
+//                 border: 1px solid #ccc;
+//                 border-top-width: 0;
+//                 padding: 20px;
+//                 white-space: normal;
+//                 font-size: 17px;
+//             }
+//             .offers-image-50 {
+//                 height: 60%;
+//                 background: #00a388;
+//                 overflow: hidden;
+//             }
+//             .offers-price-50 {
+//                 background-color: #00a388;
+//                 color: lighten(#00a388, 10);
+//                 height: 40%;
+//                 border: 1px solid #ccc;
+//                 border-top-width: 0;
+//                 padding: 20px;
+//                 white-space: normal;
+//                 font-size: 23px;
+//             }
+//         }
+//     }
+// }
+
+// figure.sniper {
+//     font-family: 'Dancing Script', cursive;
+//     ;
+//     position: relative;
+//     float: left;
+//     overflow: hidden; //margin: 10px 1%;
+//     min-width: 100%;
+//     max-width: 100%;
+//     width: 100%;
+//     color: #000000;
+//     text-align: center;
+//     -webkit-perspective: 50em;
+//     perspective: 50em;
+//     * {
+//         -webkit-box-sizing: padding-box;
+//         box-sizing: padding-box;
+//         -webkit-transition: all 0.2s ease-out;
+//         transition: all 0.2s ease-out;
+//     }
+//     img {
+//         max-width: 100%;
+//         vertical-align: top;
+//     }
+//     figcaption {
+//         top: 50%;
+//         left: 20px;
+//         right: 20px;
+//         position: absolute;
+//         opacity: 0;
+//         z-index: 1;
+//     }
+//     h2.offer10 {
+//         font-weight: 700;
+//         text-transform: uppercase;
+//         font-size: 35px;
+//         line-height: 140%;
+//         span {
+//             font-size: 50px;
+//         }
+//     }
+//     h2.offer25 {
+//         font-weight: 700;
+//         text-transform: uppercase;
+//         font-size: 35px;
+//         line-height: 160%;
+//         span {
+//             font-size: 50px;
+//         }
+//     }
+//     h2.offer50 {
+//         font-weight: 700;
+//         text-transform: uppercase;
+//         font-size: 20px; //line-height: 180%;
+//         span {
+//             font-size: 40px;
+//         }
+//     }
+//     i {
+//         font-size: 32px;
+//     }
+//     &:after {
+//         background-color: #ffffff;
+//         position: absolute;
+//         content: "";
+//         display: block;
+//         top: 20px;
+//         left: 20px;
+//         right: 20px;
+//         bottom: 20px;
+//         -webkit-transition: all 0.4s ease-in-out;
+//         transition: all 0.4s ease-in-out;
+//         -webkit-transform: rotateX(-90deg);
+//         transform: rotateX(-90deg);
+//         -webkit-transform-origin: 50% 50%;
+//         -ms-transform-origin: 50% 50%;
+//         transform-origin: 50% 50%;
+//         opacity: 0;
+//     }
+//     a {
+//         left: 0;
+//         right: 0;
+//         top: 0;
+//         bottom: 0;
+//         position: absolute;
+//         z-index: 1;
+//     }
+//     &:hover figcaption,
+//     &.hover figcaption {
+//         -webkit-transform: translateY(-50%);
+//         transform: translateY(-50%);
+//         opacity: 1;
+//         -webkit-transition-delay: 0.2s;
+//         transition-delay: 0.2s; 
+//     }
+//     &:hover:after,
+//     &.hover:after {
+//         -webkit-transform: rotateX(0);
+//         transform: rotateX(0);
+//         opacity: 0.9;
+//     } 
+// }
+
+// .sniper {
+//     transition: all 0.5s linear;
+//     &:hover img {
+//         opacity: 0.5;
+//         transform: scale(1.1);
+//     }
+// }

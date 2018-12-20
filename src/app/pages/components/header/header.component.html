@@ -1,0 +1,999 @@
+<header>
+    <nav class="muahh-header navbar navbar-fixed-top" role="navigation">
+        <!-- navbar-fixed-top -->
+        <div class="container-fluid padd0">
+            <div class="nav-muahh-1">
+                <!-- Label 1 Menu -->
+                <div class="row no-gutters">
+                    <div class="body-wrapper">
+                        <!-- Main Logo -->
+                        <div class="col-sm-1 text-center">
+                            <a class="navbar-brand-logo" [routerLink]="['/home']" (click)="removeFilters()">
+                                <img width="112" class="logo hidden-xs" src="assets/muahh.svg" alt="Logo" />
+                                <img width="50" class="logo visible-xs" src="assets/muahh.svg" alt="Logo" />
+                            </a>
+                        </div>
+                        <!-- End Main Logo -->
+                        <!-- Top Main Filter -->
+                        <div class="col-sm-7 hidden-xs">
+                            <div class="nav-muahh-filter-bar text-uppercase" *ngIf="cart?.headerPath != 'changing-room'">
+                                <ul class="list-inline muahhTab">
+                                    <li *ngFor="let f of mainFilter">
+                                        <a *ngIf="f.value !== 'all'" [routerLink]="['/productlist']" class="fix-width "
+                                            (click)="filter(f?.price)" [title]="f?.title" id="{{f?.id}}">
+                                            <span class="lft">{{f?.heading}}</span>
+                                            <span class="rgt">{{f?.price}}</span>
+                                        </a>
+                                        <a *ngIf="f.value === 'all'" [routerLink]="['/productlist']" (click)="filter(f?.value)"
+                                            [title]="f?.title" id="{{f?.id}}">
+                                            <span class="lft">{{f?.heading}}</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a title="Filter" href="javascript:void(0)" id="sectionF">
+                                            Filter
+                                        </a>
+                                    </li>
+                                    <li *ngIf="isClearFilter">
+                                        <span title="Clear Filter" (click)="getProductList(' ')" class="clear-filter"
+                                            id="sectionE">
+                                            <i class="fa fa-times-circle" aria-hidden="true"></i>
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="nav-muahh-filter-bar" *ngIf="cart?.headerPath == 'changing-room'">
+                                <ul class="list-inline muahhTab">
+                                    <li>
+                                        <a class="active" title="Basic" href="javascript:void(0)" id="sectionA">
+                                            <i class="icon-pcr icon-hip"></i>
+                                            Hips
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="" title="Special" href="javascript:void(0)" id="sectionB">
+                                            <i class="icon-pcr icon-bust"></i>
+                                            Bust
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="" title="Luxury" href="javascript:void(0)" id="sectionC">
+                                            <i class="icon-pcr icon-waist"></i>
+                                            Waist
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="" title="Luxury" href="javascript:void(0)" id="sectionD">
+                                            <i class="icon-pcr icon-height"></i>
+                                            Height
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="" title="Luxury" href="javascript:void(0)" id="sectionE">
+                                            <i class="icon-pcr icon-hair"></i>
+                                            Hair
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="" title="Luxury" href="javascript:void(0)" id="sectionF">
+                                            <i class="icon-pcr icon-skin-tone"></i>
+                                            Skin Tone
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- End Top Main Filter -->
+                        <!-- Top Page Link -->
+                        <div class="col-sm-4 text-right user-links">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#userMenu">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                            </div>
+
+                            <div class="nav-muahh-link-bar collapse navbar-collapse" id="userMenu">
+                                <ul class="list-inline muahhTab">
+                                    <li>
+                                        <a class="icon-anchor" title="HOME" [routerLink]="['/home']">
+                                            <i class="icon icon-home"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="icon-anchor" title="ABOUT MUAHH" [routerLink]="['/aboutus']">
+                                            <i class="icon icon-group"></i>
+                                        </a>
+                                    </li>
+                                    <li class="cart">
+                                        <a class="icon-anchor" title="WISHLIST" [routerLink]="['/wishlist']">
+                                            <i class="icon icon-charaty"></i>
+                                            <span *mobxAutorun class="cart-rate"> {{(cart?.wishListData)?
+                                                cart?.wishListData?.length : 0}} </span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="icon-anchor" title="OFFERS" [routerLink]="['/offers']">
+                                            <i class="icon icon-gift-rewards"></i>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a class="icon-anchor" title="GUIDES" [routerLink]="['/guides']">
+                                            <i class="icon icon-waist"></i>
+                                        </a>
+                                    </li>
+
+                                    <li class="pcr">
+                                        <a class="icon-anchor" title="PERSONAL CHANGING ROOM" [routerLink]="['/changing-room']">
+                                            <i class="icon icon-trail-room-grey"></i>
+                                            <span *mobxAutorun class="rate"> {{(cart?.pcrData)? cart?.pcrData?.length :
+                                                0}} </span>
+                                        </a>
+                                    </li>
+
+                                    <li class="cart">
+                                        <a href="javascript:void(0)" class="icon-anchor" title="CART" (click)="openCart()">
+                                            <i class="icon icon-cart-grey"></i>
+                                            <span *mobxAutorun class="cart-rate"> {{noOfItemsInCart(cart?.cartData)}}
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li class="customer-section">
+                                        <a class="icon-anchor" href="javascript:void(0)">   <!-- title="SIGN UP" -->
+                                            <i class="icon icon-user"></i>
+                                        </a>
+                                        <div class="customer-behaviour">
+                                            <ol>
+                                                <li>Welcome: <b> {{showWelcomeUser}} </b> </li>
+                                                <li><a routerLink="">My Account</a></li>
+                                                <li><a href="javascript:void(0)" (click)="UserSignOut()">Sign Out</a></li>
+                                                <li><a href="javascript:void(0)" (click)="showLoginModal()">Sign In</a></li>
+                                            </ol>
+                                        </div>
+
+                                    </li>
+                                    <li class="hidden-xs">
+                                        <a class="icon-anchor" id="searchPanelLink" title="SEARCH" href="javascript:void(0)">
+                                            <i class="icon fa fa-search"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- End Top Page Link -->
+                    </div>
+                </div>
+            </div>
+            <div class="nav-muahh-2 hidden-xs">
+                <!-- Label 2 Menu -->
+                <div class="row no-gutters">
+                    <div class="body-wrapper">
+                        <div class="row no-gutters">
+                            <div class="col-sm-1 text-center">
+                                <!-- Blan space for Logo -->
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="menu-filter">
+                                    <div class="nav-muahh-link-bar menuBox">
+                                        <!-- Essebtial Filters -->
+                                        <ul class="list-inline muahhTab menu-one" id="menuOne">
+                                            <li class="dropdown-menu" *ngFor="let category of categories">
+                                                <a href="javascript:void(0)" [attr.data-link-alt]="category?.name"
+                                                    [attr.cat-id]="category?.id" (click)="filterCategory(category?.id)">{{category?.name}}</a>
+                                            </li>
+                                        </ul>
+                                        <!-- Filter Filters -->
+                                        <ul class="list-inline muahhTab" id="menuFilter" style="display:none">
+                                            <li *ngFor="let v of variant">
+                                                <a href="javascript:void(0)" id="{{v?.name}}Menu" [attr.data-link-alt]="v?.name"
+                                                    [attr.variant-id]="v?.id">{{v?.name}}</a>
+                                            </li>
+                                        </ul>
+                                        <!-- Size Filters -->
+                                        <ul class="list-inline muahhTab" id="submainSizeMenu" style="display:none">
+                                            <li *ngFor="let v of standardSizes">
+                                                <a href="javascript:void(0)" attr.data-link-alt="{{v}}"
+                                                    [attr.standard-size]="v">{{v}}</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 text-right">
+                                <div class="search-panel" id="searchPanel" style="display:none">
+                                    <form>
+                                        <input type="text" name="search" value="Search" />
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-muahh-1 text-lowecase hidden-xs">
+                <!-- Label 3 Menu -->
+                <div class="row no-gutters">
+                    <div class="body-wrapper">
+                        <div class="col-sm-11 col-sm-push-1">
+
+                            <div class="nav-muahh-link-bar muahhSpy menuBox" id="colorSizeMenu">
+                                <ul class="list-inline muahhTab muahhTabSub-menu muahhSpyBar" *ngFor="let v of variantWithoutSize"
+                                    id="level-2-filter-{{v?.id}}" style="display:none">
+                                    <li class="muahhTabSub-menu-label3-link" *ngFor="let option of v.variant_options">
+                                        <a href="javascript:void(0)" attr.data-link-alt="{{option?.name}}"
+                                            attr.option-id="{{option?.id}}" (click)="filterVariant(option?.id, v?.name)">
+                                            {{option?.name}}</a>
+                                    </li>
+                                </ul>
+                                <!-- Size -->
+                                <ul class="list-inline muahhTab muahhTabSub-menu muahhSpyBar fixedHeight" *ngFor="let v of sizeFilter; index as i"
+                                    id="muahhSize-{{i}}" style="display:none">
+                                    <li class="muahhTabSub-menu-label3-link" *ngFor="let option of v">
+                                        <a href="javascript:void(0)" attr.data-link-alt="{{option?.name}}"
+                                            attr.option-id="{{option?.id}}" (click)="filterVariant(option?.id, 'size')">
+                                            {{option?.name}}</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- basic Menu Bar -->
+
+                            <div class="nav-muahh-link-bar muahhSpy menuBox" id="basicMenuBar" style="display:none">
+                                <!-- Level 2 loop -->
+                                <ul *ngFor="let category of categories" class="list-inline muahhTab" id="level-2-list-{{category?.id}}"
+                                    style="display:none">
+                                    <li class="muahhTabSub-menu-label3-link" *ngFor="let child of category.all_child | orderBy : ['name']">
+                                        <a href="javascript:void(0)" attr.data-link-alt="{{child?.name}}" attr.cat-id="{{child?.id}}"
+                                            (click)="filterCategory(child?.id)">{{child?.name}}</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+    <!-- <nav class="muahh-header navbar navbar-fixed-top" role="navigation" *ngIf="cart?.headerPath == 'changing-room'"> -->
+    <!-- navbar-fixed-top -->
+    <!-- <div class="container-fluid padd0"> -->
+    <!-- <div class="nav-muahh-1"> -->
+    <!-- Label 1 Menu -->
+    <!-- <div class="row no-gutters">
+                    <div class="body-wrapper">
+                        <div class="col-sm-1 text-center">
+                            <a class="navbar-brand-logo" href="/">
+                                <img width="112" class="logo" src="assets/muahh.svg" alt="Logo" />
+                            </a>
+                        </div>
+                        <div class="col-sm-7">
+                            <div class="nav-muahh-filter-bar">
+                                <ul class="list-inline muahhTab">
+                                    <li>
+                                        <a class="active" title="Basic" href="javascript:void(0)" id="sectionA">
+                                            <i class="icon-pcr icon-hip"></i>
+                                            Hips
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="" title="Special" href="javascript:void(0)" id="sectionB">
+                                            <i class="icon-pcr icon-bust"></i>
+                                            Bust
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="" title="Luxury" href="javascript:void(0)" id="sectionC">
+                                            <i class="icon-pcr icon-waist"></i>
+                                            Waist
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="" title="Luxury" href="javascript:void(0)" id="sectionD">
+                                            <i class="icon-pcr icon-height"></i>
+                                            Height
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="" title="Luxury" href="javascript:void(0)" id="sectionE">
+                                            <i class="icon-pcr icon-hair"></i>
+                                            Hair
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="" title="Luxury" href="javascript:void(0)" id="sectionF">
+                                            <i class="icon-pcr icon-skin-tone"></i>
+                                            Skin Tone
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 text-right user-links"> -->
+    <!-- <include src="user-links.html"></include> -->
+    <!-- </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="nav-muahh-2"> -->
+    <!-- Label 2 Menu -->
+    <!-- <div class="row no-gutters">
+                    <div class="body-wrapper">
+                        <div class="row no-gutters">
+                            <div class="col-sm-1 text-center"> -->
+    <!-- Blan space for Logo -->
+    <!-- </div>
+                            <div class="col-sm-8">
+                                <div class="menu-filter hide">
+                                    <div class="nav-muahh-link-bar menuBox"> -->
+
+    <!-- Basic -->
+    <!-- <ul class="list-inline muahhTab menu-one" id="menuOne">
+                                            <li class="dropdown-menu">
+                                                <a href="javascript:void(0)" data-link-alt="24">
+                                                    <i class="icon-pcr icon-hip"></i> 24
+                                                </a>
+                                            </li>
+                                            <li class="dropdown-menu">
+                                                <a href="javascript:void(0)" data-link-alt="26">
+                                                    <i class="icon-pcr icon-hip"></i> 26
+                                                </a>
+                                            </li>
+                                            <li class="dropdown-menu">
+                                                <a href="javascript:void(0)" data-link-alt="28">
+                                                    <i class="icon-pcr icon-hip"></i> 28
+                                                </a>
+                                            </li>
+                                            <li class="dropdown-menu">
+                                                <a href="javascript:void(0)" data-link-alt="30">
+                                                    <i class="icon-pcr icon-hip"></i> 30
+                                                </a>
+                                            </li> -->
+    <!--  -->
+    <!-- <li class="dropdown-menu">
+                                                <a href="javascript:void(0)" data-link-alt="32">
+                                                    <i class="icon-pcr icon-hip"></i> 32
+                                                </a>
+                                            </li>
+                                            <li class="dropdown-menu">
+                                                <a href="javascript:void(0)" data-link-alt="34">
+                                                    <i class="icon-pcr icon-hip"></i> 34
+                                                </a>
+                                            </li>
+                                            <li class="dropdown-menu">
+                                                <a href="javascript:void(0)" data-link-alt="36">
+                                                    <i class="icon-pcr icon-hip"></i> 36
+                                                </a>
+                                            </li>
+                                            <li class="dropdown-menu">
+                                                <a href="javascript:void(0)" data-link-alt="38">
+                                                    <i class="icon-pcr icon-hip"></i> 38
+                                                </a>
+                                            </li>
+                                            <li class="dropdown-menu">
+                                                <a href="javascript:void(0)" data-link-alt="34">
+                                                    <i class="icon-pcr icon-hip"></i> 40
+                                                </a>
+                                            </li>
+                                            <li class="dropdown-menu">
+                                                <a href="javascript:void(0)" data-link-alt="42">
+                                                    <i class="icon-pcr icon-hip"></i> 42
+                                                </a>
+                                            </li>
+                                        </ul> -->
+    <!-- Special -->
+    <!-- <ul class="list-inline muahhTab menu-two" id="menuTwo" style="display:none">
+                                            <li class="dropdown-menu">
+                                                <a href="javascript:void(0)" data-link-alt="Bra">Bra</a>
+                                            </li>
+                                            <li class="dropdown-menu">
+                                                <a href="javascript:void(0)" data-link-alt="Panties">Panties</a>
+                                            </li>
+                                            <li class="dropdown-menu">
+                                                <a href="javascript:void(0)" data-link-alt="Swimwear">Swimwear</a>
+                                            </li>
+                                            <li class="dropdown-menu">
+                                                <a href="javascript:void(0)" data-link-alt="Nightwear">Nightwear</a>
+                                            </li>
+                                        </ul> -->
+    <!-- Luxury -->
+    <!-- <ul class="list-inline muahhTab menu-three" id="menuThree" style="display:none">
+                                            <li class="dropdown-menu">
+                                                <a href="javascript:void(0)" data-link-alt="Bra">Bra</a>
+                                            </li>
+                                            <li class="dropdown-menu">
+                                                <a href="javascript:void(0)" data-link-alt="Panties">Panties</a>
+                                            </li>
+                                            <li class="dropdown-menu">
+                                                <a href="javascript:void(0)" data-link-alt="Swimwear">Swimwear</a>
+                                            </li>
+                                            <li class="dropdown-menu">
+                                                <a href="javascript:void(0)" data-link-alt="Nightwear">Nightwear</a>
+                                            </li>
+                                            <li class="dropdown-menu">
+                                                <a href="javascript:void(0)" data-link-alt="Wedding">Wedding</a>
+                                            </li>
+                                        </ul> -->
+    <!-- Filters -->
+    <!-- <ul class="list-inline muahhTab" id="menuFilter" style="display:none">
+                                            <li>
+                                                <a href="javascript:void(0)" id="colorMenu" data-link-alt="Colors">Colors</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)" id="mainSizeMenu" data-link-alt="Size">Size
+                                                </a>
+                                                <i class="fa fa-angle-right"></i>
+                                            </li>
+                                        </ul>
+                                        <ul class="list-inline muahhTab" id="submainSizeMenu" style="display:none">
+                                            <li>
+                                                <a href="javascript:void(0)" id="sizeMenu" data-link-alt="30">30</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)" id="sizeMenuXx" data-link-alt="32">32</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)" id="sizeMenuXx" data-link-alt="34">34</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)" id="sizeMenuXx" data-link-alt="36">36</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)" id="sizeMenuXx" data-link-alt="38">38</a>
+                                            </li>
+                                            <li>
+                                                <a href="javascript:void(0)" id="sizeMenuXx" data-link-alt="40">40</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 text-right">
+                                <div class="search-panel" id="searchPanel" style="display:none">
+                                    <form>
+                                        <input type="text" name="search" value="Search" />
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="nav-muahh-1 text-lowecase"> -->
+    <!-- Label 3 Menu -->
+    <!-- <div class="row no-gutters">
+                    <div class="body-wrapper">
+                        <div class="col-sm-11 col-sm-push-1">
+                            <div class="nav-muahh-link-bar muahhSpy menuBox" id="colorSizeMenu"> -->
+    <!-- color -->
+    <!-- <ul class="list-inline muahhTab muahhTabSub-menu muahhSpyBar" id="muahhColor" style="display:none">
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="White"> White</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Nude"> Nude</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Grey"> Grey</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Black"> Black</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Pink"> Pink</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Red"> Red</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Green"> Green</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Blue"> Blue</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Purple"> Purple</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Brown"> Brown</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Gold"> Gold</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Print"> Print</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Multi-coloured"> Multi-coloured</a>
+                                    </li>
+
+                                </ul> -->
+    <!-- Size -->
+    <!-- <ul class="list-inline muahhTab muahhTabSub-menu muahhSpyBar fixedHeight" id="muahhSize30"
+                                    style="display:none">
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="30A"> 30A</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="30B"> 30B</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="30C"> 30C</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="30D"> 30D</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="30DD"> 30DD</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="30E"> 30E</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="30F"> 30F</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="30FF"> 30FF</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="30G"> 30G</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="30GG"> 30GG</a>
+                                    </li>
+                                </ul>
+                                <ul class="list-inline muahhTab muahhTabSub-menu muahhSpyBar fixedHeight" id="muahhSize32"
+                                    style="display:none">
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="32AA"> 32AA</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="32A"> 32A</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="32B"> 32B</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="32C"> 32C</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="32D"> 32D</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="32DD"> 32DD</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="32E"> 32E</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="32F"> 32F</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="32FF"> 32FF</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="32G"> 32G</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="32GG"> 32GG</a>
+                                    </li>
+                                </ul>
+                                <ul class="list-inline muahhTab muahhTabSub-menu muahhSpyBar fixedHeight" id="muahhSize34"
+                                    style="display:none">
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="34AA"> 34AA</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="34A"> 34A</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="34B"> 34B</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="34C"> 34C</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="34D"> 34D</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="34DD"> 34DD</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="34E"> 34E</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="34F"> 34F</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="34FF"> 34FF</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="34G"> 34G</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="34GG"> 34GG</a>
+                                    </li>
+                                </ul>
+                                <ul class="list-inline muahhTab muahhTabSub-menu muahhSpyBar fixedHeight" id="muahhSize36"
+                                    style="display:none">
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="36B"> 36B</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="36C"> 36C</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="36D"> 36D</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="36DD"> 36DD</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="36E"> 36E</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="36F"> 36F</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="36FF"> 36FF</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="36G"> 36G</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="36GG"> 36GG</a>
+                                    </li>
+                                </ul>
+                                <ul class="list-inline muahhTab muahhTabSub-menu muahhSpyBar fixedHeight" id="muahhSize38"
+                                    style="display:none">
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="38B"> 38B</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="38C"> 38C</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="38D"> 38D</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="38DD"> 38DD</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="38E"> 38E</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="38F"> 38F</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="38FF"> 38FF</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="38G"> 38G</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="38GG"> 38GG</a>
+                                    </li>
+                                </ul>
+                                <ul class="list-inline muahhTab muahhTabSub-menu muahhSpyBar fixedHeight" id="muahhSize40"
+                                    style="display:none">
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="40C"> 40C</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="40D"> 40D</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="40DD"> 40DD</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="40E"> 40E</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="40F"> 40F</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="40FF"> 40FF</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="40G"> 40G</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="40GG"> 40GG</a>
+                                    </li>
+                                </ul>
+                            </div> -->
+
+    <!-- basic Menu Bar -->
+
+    <!-- <div class="nav-muahh-link-bar muahhSpy menuBox" id="basicMenuBar" style="display:none"> -->
+    <!-- Basic Bra 001-->
+    <!-- <ul class="list-inline muahhTab" id="menuBra01" style="display:none">
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Racerback">Racerback</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Bralette">Bralette</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Bandeau">Bandeau</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Plunge">Plunge</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="T Shirt">T Shirt</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Backless">Backless</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Strapless">Strapless</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Halter Neck">Halter Neck</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Fullcup">Fullcup</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Push Up">Push Up</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Demicup">Demicup</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Contour">Contour</a>
+                                    </li>
+                                </ul> -->
+    <!-- Basic Panties 001-->
+    <!-- <ul class="list-inline muahhTab" id="menuPanties01" style="display:none">
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Hipster">Hipster</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Thongs">Thongs</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Boy Shorts">Boy Shorts</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Brazilian">Brazilian</a>
+                                    </li>
+                                </ul> -->
+    <!-- Basic Swimwear 001-->
+    <!-- <ul class="list-inline muahhTab" id="menuSwimwear01" style="display:none">
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Bikini">Bikini</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="One Piece">One Piece</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Monokini">Monokini</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="TANKINI">Tankini</a>
+                                    </li>
+                                </ul> -->
+    <!-- Nightwear 001-->
+    <!-- <ul class="list-inline muahhTab" id="menuNightwear01" style="display:none">
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Top">Top</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Chemise">Chemise</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Trouser">Trouser</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Shorts">Shorts</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Gown">Gown</a>
+                                    </li>
+                                </ul>
+                            </div> -->
+
+    <!-- special Menu Bar -->
+
+    <!-- <div class="nav-muahh-link-bar muahhSpy menuBox" id="specialMenuBar" style="display:none"> -->
+    <!-- Basic Bra 002-->
+    <!-- <ul class="list-inline muahhTab" id="menuBra02" style="display:none">
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Push Up">Push Up</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="U Shaped">U Shaped</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Balconette">Balconette</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Balcony">Balcony</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Demi Padded">Demi Padded</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Plunge Non Padded">Plunge Non Padded</a>
+                                    </li>
+                                </ul> -->
+    <!-- Basic Panties 002-->
+    <!-- <ul class="list-inline muahhTab" id="menuPanties02" style="display:none">
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Hipster">Hipster</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Boy Shorts">Boy Shorts</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Brazilian">Brazilian</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Thongs">Thongs</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Medium-Low Rise Bikini">Medium-Low Rise Bikini</a>
+                                    </li>
+                                </ul> -->
+    <!-- Basic Swimwear 002-->
+    <!-- <ul class="list-inline muahhTab" id="menuSwimwear02" style="display:none">
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Bikini">Bikini</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="One Piece">One Piece</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Monokini">Monokini</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Tankini">Tankini</a>
+                                    </li>
+                                </ul> -->
+    <!-- Nightwear 002-->
+    <!-- <ul class="list-inline muahhTab" id="menuNightwear02" style="display:none">
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Top">Top</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Chemise">Chemise</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Trouser">Trouser</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Shorts">Shorts</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Gown">Gown</a>
+                                    </li>
+                                </ul>
+                            </div> -->
+    <!-- luxury Menu Bar -->
+    <!-- <div class="nav-muahh-link-bar muahhSpy menuBox" id="luxuryMenuBar" style="display:none"> -->
+    <!-- Basic Bra 003-->
+    <!-- <ul class="list-inline muahhTab" id="menuBra03" style="display:none">
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Balconette">Balconette</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Plunge">Plunge</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Fullcup">Fullcup</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Push Up">Push Up</a>
+                                    </li>
+                                </ul> -->
+    <!-- Basic Panties 003-->
+    <!-- <ul class="list-inline muahhTab" id="menuPanties03" style="display:none">
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Medium-Low Rise Bikini">Medium-Low Rise Bikini</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Brazilian">Brazilian</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Thongs">Thongs</a>
+                                    </li>
+                                </ul> -->
+    <!-- Basic Swimwear 003-->
+    <!-- <ul class="list-inline muahhTab" id="menuSwimwear03" style="display:none">
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Bikini">Bikini</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="One Piece">One Piece</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="MONOKINI">Monokini</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="TANKINI">Tankini</a>
+                                    </li>
+                                </ul> -->
+    <!-- Nightwear 003-->
+    <!-- <ul class="list-inline muahhTab" id="menuNightwear03" style="display:none">
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Top">Top</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Chemise">Chemise</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Trouser">Trouser</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Shorts">Shorts</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Gown">Gown</a>
+                                    </li>
+                                </ul> -->
+    <!-- Wedding 003-->
+    <!-- <ul class="list-inline muahhTab" id="menuWedding03" style="display:none">
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Padded Balconette">Padded Balconette</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Plunge">Plunge</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Baby Doll">Baby Doll</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Long Line Bridal">Long Line Bridal</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Thongs">Thongs</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Boy Shorts">Boy Shorts</a>
+                                    </li>
+                                    <li class="muahhTabSub-menu-label3-link">
+                                        <a href="#" data-link-alt="Bikini Briefs">Bikini Briefs</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav> -->
+    <!-- nav -->
+    <!-- 
+    <script>
+        $(".muahhTabSub-menu-label3-link").click(function (e) {
+            e.preventDefault();
+        });
+
+        $(document).ready(function () { -->
+
+
+    <!-- $('#searchPanelLink').click(function () {
+                $('#searchPanel').slideToggle();
+            })
+
+            $('.muahhTabSub-menu-label3-link a').click(function () {
+                var height = $('#myCarousel').height();
+                $('html, body').animate({
+                    scrollTop: $("#section2").offset().top - 126
+                }, 1000);
+            });
+
+        })
+
+    </script> -->
+</header>

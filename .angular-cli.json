@@ -1,0 +1,77 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "project": {
+    "name": "muahhfrontend"
+  },
+  "apps": [
+    {
+      "root": "src",
+      "outDir": "dist",
+      "assets": [
+        "assets",
+        "favicon.ico"
+      ],
+      "index": "index.html",
+      "main": "main.ts",
+      "polyfills": "polyfills.ts", 
+      "test": "test.ts",
+      "tsconfig": "tsconfig.app.json",
+      "testTsconfig": "tsconfig.spec.json",
+      "prefix": "app",
+      "styles": [
+        "styles.css",
+        "styles.scss",
+        "./assets/scripts/lib/jquery.flipster.min.css",
+        "../node_modules/owl.carousel/dist/assets/owl.carousel.css",
+        "../node_modules/owl.carousel/dist/assets/owl.theme.default.css",
+        "./styles/scss/style.scss",
+        "./styles/scss/_muahh.scss",
+        "./styles/lib/threesixty.css"
+      ],
+      "scripts": [
+        "./assets/scripts/lib/threesixty.js",
+        "./assets/scripts/lib/bootstrap.js",
+        "./assets/scripts/lib/owl.carousel.js",
+        "./assets/scripts/lib/jquery.easing.js",
+        "./assets/scripts/lib/jquery.ripples.js",
+        "./assets/scripts/lib/jquery.elevateZoom-3.0.8.min.js",
+        "./assets/scripts/lib/jquery.ez-plus.js",
+        "./assets/scripts/lib/jquery.flipster.min.js",
+        "./assets/scripts/lib/jquery.waterwheelCarousel.min.js"
+      ],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      }
+    }
+  ],
+  "e2e": {
+    "protractor": {
+      "config": "./protractor.conf.js"
+    }
+  },
+  "lint": [
+    {
+      "project": "src/tsconfig.app.json",
+      "exclude": "**/node_modules/**"
+    },
+    {
+      "project": "src/tsconfig.spec.json",
+      "exclude": "**/node_modules/**"
+    },
+    {
+      "project": "e2e/tsconfig.e2e.json",
+      "exclude": "**/node_modules/**"
+    }
+  ],
+  "test": {
+    "karma": {
+      "config": "./karma.conf.js"
+    }
+  },
+  "defaults": {
+    "styleExt": "scss",
+    "component": {}
+  }
+}

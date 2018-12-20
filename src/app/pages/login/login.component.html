@@ -1,0 +1,180 @@
+
+<div class="voucher-components" *ngIf="isMainContainer">
+  <div class="model-popup" id="signLoginDiv">
+    <div class="model-content">
+      <ng-container>
+        <h2 class="top-heading">SIGN UP &amp; GET SHOPPING VOUCHERS WORTH </h2>
+        <div class="user-from">
+          <div class="row">
+            <div class="col-sm-6" [formGroup]="signUpForm">
+              <div class="">
+                <div class="head">REGISTER</div>
+
+                <div class="form-group">
+                  <input formControlName="first_name" type="text" class="form-control" placeholder="First Name">
+                  <small class="text-danger" *ngIf="signUpForm.controls.first_name.invalid && (signUpForm.controls.first_name.touched || signUpForm.controls.first_name.dirty)">First name is required.</small>
+                </div>
+                <div class="form-group">
+                  <input formControlName="last_name" type="text" class="form-control" placeholder="Last Name">
+                  <small class="text-danger" *ngIf="signUpForm.controls.last_name.invalid && (signUpForm.controls.last_name.touched || signUpForm.controls.last_name.dirty)">Last name is required.</small>
+                </div>
+                <div class="form-group">
+                  <input formControlName="email" type="email" class="form-control" placeholder="E-mail ID">
+                  <small class="text-danger" *ngIf="signUpForm.controls.email.invalid && (signUpForm.controls.email.touched || signUpForm.controls.email.dirty)">Email is required.</small>
+                </div>
+                <div class="form-group">
+                  <input formControlName="user_name" type="text" class="form-control" placeholder="User Name *">
+                  <small class="text-danger" *ngIf="signUpForm.controls.user_name.invalid && (signUpForm.controls.user_name.touched || signUpForm.controls.user_name.dirty)">User name is required.</small>
+                </div>
+                <div class="form-group">
+                  <input formControlName="password" type="password" class="form-control" placeholder="Password *">
+                  <small class="text-danger" *ngIf="signUpForm.controls.password.invalid && (signUpForm.controls.password.touched || signUpForm.controls.password.dirty)">Password is required.</small>
+                </div>
+                <div class="form-group gender-selection">
+                  <div class="radio">
+                    <label>
+                      <input formControlName="gender" type="radio" value="Male"> Male</label>
+                    <label>
+                      <input formControlName="gender" type="radio" value="Female"> Female</label>
+                      <small class="text-danger" *ngIf="signUpForm.controls.gender.invalid && (signUpForm.controls.gender.touched || signUpForm.controls.gender.dirty)">Gender is required.</small>
+                  </div>
+                </div>
+                <div class="form-group gender-selection">
+                  <div class="radio">
+                    <label>
+                      <input formControlName="agree" type="radio" value="agree"> I agree to receive information about exciting
+                      offers by e-mail.</label>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <p>By Signing up you will agree Privacy Policy and
+                    <a style="cursor: pointer;" (click)="openPopup()">Terms of Conditions.</a>
+                  </p>
+                </div>
+                <div class="form-group social-media">
+                  <p>SIGN UP WITH YOUR SOCIAL ACCOUNTS </p>
+                </div>
+                <div *ngIf="signupErrMsg!=null" class="form-group text-danger">
+                  {{signupErrMsg}}
+                </div>
+
+                <div class="form-group">
+                  <span class="relative">
+                  <button [ngClass]="{'disable-opacity': signUpForm.invalid}" [disabled]="signUpForm.invalid" (click)="signUp()" class="btn animationBtn btn-muahh">SIGN UP
+                  </button></span>
+                </div>
+              </div>
+
+            </div>
+            <div class="col-sm-6">
+              <div class="">
+                <div class="head">LOG IN</div>
+                <form [formGroup]="loginForm">
+                  <div class="form-group">
+                    <input type="text" formControlName="email" class="form-control" placeholder="Enter Email Id">
+                    <small class="text-danger" *ngIf="loginForm.controls.email.invalid && (loginForm.controls.email.touched || loginForm.controls.email.dirty)">Email is required.</small>
+                  </div>
+                  <div class="form-group">
+                    <input type="password" formControlName="password" class="form-control" placeholder="Enter Password" (keydown)="onKeydown($event)" >
+                    <small class="text-danger" *ngIf="loginForm.controls.password.invalid && (loginForm.controls.password.touched || loginForm.controls.password.dirty)">Password is required.</small>
+                  </div>
+                  <div>
+                    <input type="checkbox" formControlName="rememberme" >Remember me
+                  </div>
+                </form>
+                <div *ngIf="loginErrMsg!=null" class="form-group text-danger">
+                  {{loginErrMsg}}
+                </div>
+                <div class="form-group">
+                  <span class="relative">
+                  <button class="btn animationBtnnew btn-muahh" [disabled]="loginForm.invalid" (click)="login()">Let's Go</button> </span>
+                  <button (click)="showForgetPassword()" class="btn btn-muahh">Forget Password</button>
+
+                </div>
+                <!-- <div class="form-group popup-video">
+                  <div class="head">SEE HOW THE WEBSITE WORKS</div>
+                  <p style="padding:10px 0;">
+                    <img class="img-responsive" src="assets/guide-banner.jpg" alt="">
+                  </p>
+                </div> 
+
+                <div class="form-group">
+                  <input type="button" (click)="loginAsGuest()" class="btn btn-muahh btn-block" value="PROCEED AS GUEST">
+                </div> -->
+              </div>
+            </div> 
+          </div>
+        </div>
+        <span (click)="closeLoginModal()" class="model-close" id="signLoginBtn"></span>
+      </ng-container>
+    </div>
+  </div>
+</div>
+<!--Start : Forget Password -->
+<div class="voucher-components" *ngIf="isShowLoginContainer">
+  <div class="model-popup" id="signLoginDiv">
+    <div class="forget-password-component">
+      <div class="user-from">
+        <div class="row">
+          <div class="col-sm-12">
+            <h2>Forgot Password</h2>
+            <p>Please enter the email address you used to create your account and we will send you a link to reset your password.
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <form [formGroup]="forgetPasswordForm">
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input formControlName="email" type="email" class="form-control"/>
+                <small class="text-danger" *ngIf="forgetPasswordForm.controls.email.invalid && (forgetPasswordForm.controls.email.touched || forgetPasswordForm.controls.email.dirty)">Email is required.</small>
+              </div>
+              <div class="form-group">
+                <label for="pwd">Confirm Email</label>
+                <input formControlName="confirmEmail" type="email" class="form-control">
+                <small class="text-danger" *ngIf="forgetPasswordForm.controls.confirmEmail.invalid && (forgetPasswordForm.controls.confirmEmail.touched || forgetPasswordForm.controls.confirmEmail.dirty)">Email doesn't match.</small>
+              </div>
+              <button [class.disabled]="!forgetPasswordForm.valid" (click)="forgetPassword()" class="btn btn-muahh"> Send </button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <span (click)="closeLoginModal()" class="model-close" id="signLoginBtn"></span>
+    </div>
+  </div>
+</div>
+<!--End : Forget Password -->
+
+<div class="voucher-components" *ngIf="termsAndCondition">
+  <div class="model-popup" id="signLoginDiv">
+    <div class="model-content">
+      <h2 class="top-heading">
+        TERMS & CONDITIONS
+        <br>
+        <small>Important Legal Information</small>
+      </h2>
+      <hr>
+      <div>
+          <!-- <h4>IMPORTANT LEGAL INFORMATION</h4> -->
+        <h4>Overview</h4>
+        <div class="model-para">
+        <p>The following terms, conditions, and notices ("Site Rules") apply to all visitors or users of this website, and
+          of microsites, mobile websites or mobile applications of our brands and lines of business (e.g., Victoria's Secret,
+          Victoria's Secret Pink, and Pink Nation) that expressly adopt these Site Rules (collectively, the "Site"). We may
+          refer to our brands and lines of business as "we," "us," or "our" throughout the Site Rules. By using this Site,
+          you agree to be bound by these rules and regulations, as they may be modified by us at any time and posted on this
+          Site. In the event of a violation of these Site Rules, we reserve the right to seek all remedies available by law
+          and in equity.</p>
+        <p>
+          As referred to in these Site Rules, "Victoria's Secret" refers to Victoria's Secret Direct Brand Management, LLC, or Victoria's
+          Secret Stores Brand Management, Inc., and other companies affiliated with these companies.</p>
+          <p><input type="checkbox" >
+            I have read and agree to the Terms and conditions.</p>
+        </div>
+      </div>
+      <button class="btn btn-muahh" (click)="closeTCModal()"> Accept </button>
+    </div>
+  </div>
+</div>

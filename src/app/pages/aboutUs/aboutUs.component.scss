@@ -1,0 +1,438 @@
+@import "../../../styles/scss/_core/_mixins.scss";
+
+// body{
+//     background: #fde7e6 !important;
+// }
+.separator {
+    height: 80px;
+    overflow: hidden;
+    float: left;
+    width: 100%;
+}
+
+.snip1273 {
+    position: relative;
+
+    * {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        -webkit-transition: all 0.4s ease-in;
+        transition: all 0.4s ease-in;
+    }
+
+    .hover-content {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        opacity: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        &:before, &:after {
+            width: 1px;
+            height: 0;
+        }
+
+        &:before {
+            right: 0;
+            top: 0;
+        }
+
+        &:after {
+            left: 0;
+            bottom: 0;
+        }
+    }
+
+    a {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        z-index: 1;
+    }
+
+    &:before, &:after {
+        position: absolute;
+        content: '';
+        background-color: #ffffff;
+        z-index: 1;
+        -webkit-transition: all 0.4s ease-in;
+        transition: all 0.4s ease-in;
+        opacity: 0.8;
+    }
+
+    .hover-content {
+        &:before, &:after {
+            position: absolute;
+            content: '';
+            background-color: #ffffff;
+            z-index: 1;
+            -webkit-transition: all 0.4s ease-in;
+            transition: all 0.4s ease-in;
+            opacity: 0.8;
+        }
+    }
+
+    &:hover .hover-content, &.hover .hover-content {
+        opacity: 1;
+    }
+
+    &:hover:before, &.hover:before, &:hover:after, &.hover:after, &:hover .hover-content:before, &.hover .hover-content:before, &:hover .hover-content:after, &.hover .hover-content:after {
+        opacity: 0.1;
+    }
+}
+
+.muahh-about-component {
+    // background: #fde7e6 !important;
+    padding-bottom: 100px;
+
+    &.top-space-about {
+        padding-top: 130px;
+    }
+
+    .row {
+        margin-left: 0;
+        margin-right: 0;
+
+        > [class*=col-xs], [class*=col-sm] {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
+    .about-content {
+        border-bottom: 1px solid #af1527;
+
+        .about-content-para {
+            margin-top: 118px;
+            padding-left: 10px;
+
+            h2 {
+                margin: 0 0 20px 0;
+                font-weight: bold;
+                letter-spacing: 2px;
+
+                span {
+                    color: #af1527 !important;
+                }
+            }
+
+            p {
+                line-height: 30px;
+                font-size: 20px;
+                color: #666;
+
+                // font-family: 'Playball';
+           
+            }
+        }
+
+        .about-top-image {
+            position: relative;
+
+            .img-one, .img-two {
+                position: absolute;
+                border-radius: 5px;
+                background: #fff;
+                padding: 5px;
+                border: 1px solid #ccc;
+                overflow: hidden;
+            }
+
+            .img-one {
+                z-index: 1;
+                right: 0;
+                top: 0;
+
+                > img {
+                    width: 300px;
+                    max-width: 100%;
+                    transition: all 2s ease-in;
+
+                    &:hover {
+                        transform: scale(1.4);
+                    }
+                }
+            }
+
+            .img-two {
+                z-index: 2;
+                top: 120px;
+
+                > img {
+                    width: 200px;
+                    max-width: 100%;
+                    transition: all 2s ease-out;
+
+                    &:hover {
+                        transform: scale(1.2);
+                    }
+                }
+            }
+        }
+    }
+
+    .about-mission, .about-design {
+        background: url("/assets/about-us-bg.jpg") no-repeat center center;
+        overflow: hidden;
+        padding: 25px 50px;
+        min-height: 311px;
+
+        .content {
+            padding: 25px;
+
+            .tab-list {
+                margin-left: 0;
+                padding-left: 0;
+
+                li {
+                    display: inline-block;
+                    font-weight: bold;
+                    padding: 10px 15px;
+                    color: #fff;
+                    font-size: 20px;
+                    letter-spacing: 1px;
+                    cursor: pointer;
+                    color: #eee;
+
+                    &.active {
+                        background: #fff;
+                        color: #af1527;
+                    }
+                }
+            }
+
+            h3 {
+                font-size: 28px;
+                margin-bottom: 15px;
+            }
+
+            p {
+                font-size: 16px;
+                line-height: 26px;
+                color: #fff;
+
+                // font-family: 'Playball';
+           
+            }
+        }
+    }
+
+    .about-carousel {
+        .about-carousel-item {
+            padding: 35px 25px;
+            box-shadow: 8px 0 0px 0 rgba(0, 0, 0, 0.075), 0px 0 8px 0 rgba(0, 0, 0, 0.15);
+            margin: 0 1px;
+            min-height: 300px;
+
+            .show-content {
+                i.icon {
+                    background: #fde7e6;
+                    padding: 25px;
+                    font-size: 50px;
+                    display: inline-block;
+                    text-align: center;
+                    border-radius: 3px;
+                    position: relative;
+
+                    &:after {
+                        content: '';
+                        display: block;
+                        position: absolute;
+                        left: 0;
+                        bottom: -10px;
+                        width: 0;
+                        height: 0;
+                        border-left: 50px solid transparent;
+                        border-right: 50px solid transparent;
+                        border-top: 30px solid #fde7e6;
+                    }
+                }
+
+                h4 {
+                    font-size: 20px;
+                    font-weight: bold;
+                    margin-top: 20px;
+                    margin-bottom: 15px;
+                }
+
+                p {
+                    font-size: 16px;
+                    line-height: 26px;
+
+                    // font-family: 'Playball';
+               
+                }
+
+                button {
+                    background: #af1527;
+                    color: #fde7e6;
+                }
+            }
+
+            .hover-content {
+                background: #3b282c;
+                color: #fff;
+                padding: 20px;
+                cursor: pointer;
+                min-height: 330px;
+
+                h4 {
+                    font-size: 20px;
+                    font-weight: bold;
+                    margin-top: 20px;
+                    margin-bottom: 15px;
+                }
+
+                p {
+                    font-size: 16px;
+                    line-height: 26px;
+
+                    // font-family: 'Playball';
+               
+                }
+            }
+        }
+    }
+}
+
+.stack {
+    img {
+        width: 100%;
+        height: auto;
+        vertical-align: bottom;
+        border: 10px solid #fff;
+        border-radius: 3px;
+        box-sizing: border-box;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+    }
+
+    &:last-of-type {
+        margin-right: 0;
+    }
+
+    &.twisted {
+        &:before {
+            transform: rotate(4deg);
+        }
+
+        &:after {
+            transform: rotate(-4deg);
+        }
+    }
+
+    &:hover {
+        &:before, &:after {
+            transform: rotate(0deg);
+        }
+    }
+}
+
+.stack {
+    &:before, &:after {
+        content: "";
+        border-radius: 3px;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        border: 10px solid #fff;
+        left: 0;
+        box-sizing: border-box;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+        transition: 0.3s all ease-out;
+    }
+
+    &:before {
+        top: 4px;
+        z-index: -10;
+    }
+
+    &:after {
+        top: 8px;
+        z-index: -20;
+    }
+
+    float: none;
+    width: 92%;
+    margin: 3% 0% 8% 4%;
+    position: relative;
+    z-index: 1;
+}
+
+.submit-your-review {
+    position: absolute;
+    top: 20px;
+    right: 0;
+
+    // border: 1px solid #ffcc00;
+    z-index: 66;
+    font-size: 14px;
+    font-weight: bold;
+    display: flex;
+
+    .review-btn, .about-btn {
+        padding: 10px 25px;
+        border: 0;
+        background: #e3e3e3;
+        position: relative;
+        width: 170px;
+
+        &:active, &:focus {
+            outline: none;
+        }
+
+        &:hover, &.active {
+            background: #a90214;
+            color: #fff;
+
+            &:before, &:after {
+                background: #a90214;
+            }
+        }
+    }
+
+    .about-btn {
+        position: relative;
+        margin-right: 20px;
+
+        &:after {
+            z-index: -1;
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: -15px;
+            display: block;
+            width: 50px;
+            background: #e3e3e3;
+            -webkit-transform: skew(-20deg);
+            -ms-transform: skew(-20deg);
+            transform: skew(-20deg);
+        }
+    }
+
+    .review-btn {
+        margin-left: 20px;
+
+        &:before {
+            z-index: -1;
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: -15px;
+            display: block;
+            width: 50px;
+            background: #e3e3e3;
+            -webkit-transform: skew(-20deg);
+            -ms-transform: skew(-20deg);
+            transform: skew(-20deg);
+        }
+    }
+}

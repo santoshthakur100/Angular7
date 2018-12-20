@@ -1,0 +1,56 @@
+<div id="inThisCollection" class="tabcontent">
+    <div class="product-discription">
+        <!-- <h1 class="red">In This Collection</h1> -->
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div id="carousel" class="flipster">
+                    <ul class="flip-items">
+                        <li *ngFor="let item of productDetailCollection; let i = index" style="width:400px;">
+                            <!-- >>>>> {{item.name}} -->
+                            
+                            <comp-productCumImage class="img-responsive" [productDetail]="item" [productImagePath]="item.thumbnail" [productPrice]="item.name" [productName]="item.max_price_count">
+
+                            </comp-productCumImage>
+
+                            
+
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- <div id="carousel" class="flipster">
+                    <ul class="flip-items">
+                        <li *ngFor="let item of productDetailCollection;let i = index">
+                            <comp-productCumImage [productDetail]="item" [productImagePath]="item.thumbnail"
+                                [productPrice]="item?.variations[0]?.price" [productName]="item.name"></comp-productCumImage>
+                        </li>
+                    </ul>
+                </div> -->
+                
+            </div>
+        </div>
+    </div>
+
+
+    <!-- <div id="inThisCollection" class="tabcontent"></div> -->
+    <!-- ******************************************************** -->
+    <!-- ******************************************************** -->
+    <!-- <div id="inThisCollection" class="tabcontent">
+        <div class="product-discription">
+            <h1 class="red">In This Collection</h1>
+            <div class="row">
+                <div class="col-xs-12">
+                    <owl-carousel class="complete-this-look" [options]="{items: 6, margin: 10, dots: false, navigation: true}"
+                        [items]="productDetailCollection" [carouselClasses]="['owl-theme', 'sliding']">
+                        <div class="item" *ngFor="let item of productDetailCollection;let i = index">
+                            <comp-productCumImage class="img-responsive" [productDetail]="item" [productImagePath]="item.thumbnail"
+                                [productPrice]="item?.variations[0]?.price" [productName]="item.name"></comp-productCumImage>
+                        </div>
+                    </owl-carousel>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+</div>

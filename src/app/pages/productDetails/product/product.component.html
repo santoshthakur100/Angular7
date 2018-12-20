@@ -1,0 +1,344 @@
+<div id="product-details" class="tabcontent">
+  <div class="product-discription">
+    <!-- <h1 class="red">Product Detail</h1> -->
+    <div class="row">
+      <div class="col-sm-5 col-xs-12">
+        <div class="product-icons" style="margin-bottom:0;">
+          <div class="icon-1" title="Wishlist">
+            <i class="fa icon icon-charaty" (click)="addToWishList(productDetails)"></i>
+          </div>
+          <div class="icon-2" title="Add to cart">
+            <i class="icon icon-cart-grey" (click)="addToCart(productDetails)"></i>
+          </div>
+          <div class="icon-3" title="Share">
+            <i class="fa icon-share-grey"></i>
+            <div class="social-media">
+              <a href="http://www.facebook.com/sharer.php?u={{products?.thumbnail}}" target="_blank" title="Facebook">
+                <i class="fa fa-facebook"></i>
+              </a>
+              <a title="Twitter" target="_blank" href="https://twitter.com/share?url={{products?.thumbnail}}">
+                <i class="fa fa-twitter"></i>
+              </a>
+              <a href="mailto:contact@muahh.co.uk" title="Send an Email" target="_blank">
+                <i class="fa fa-envelope"></i>
+              </a>
+              <a title="Google" href="https://plus.google.com/share?url={{products?.thumbnail}}" target="_blank">
+                <i class="fa fa-google-plus"></i>
+              </a>
+              <a title="Pinterest" href="javascript:void((function()%7Bvar%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','http://assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)%7D)());">
+                <i class="fa fa-pinterest-p"></i>
+              </a>
+              <a href="https://accounts.snapchat.com/" title="Snapchat" target="_blank">
+                <i class="fa fa-snapchat"></i>
+              </a>
+              <a title="Instagram" href="https://www.instagram.com/" target="_blank">
+                <i class="fa fa-instagram"></i>
+              </a>
+            </div>
+          </div>
+          <!-- <div class="icon-4" title="Your room">
+            <i class="fa icon-trail-room-grey" (click)="addToChangingRoom(productDetails)"></i>
+          </div> -->
+
+          <div class="icon-4" title="Charity">
+            <i class="fa icon-charaty"></i>
+            <a href="javascript:void(0)" title="Charity">
+              <div class="product-range">
+                <!-- product_class -->
+                <div class="charity-range-bar">
+                  <!-- charity-bar -->
+                  <input class="charity-range-slider slider" id="myRange" type="range" min="0" max="100" value="0"
+                    data-toggle="tooltip" data-placement="top" />
+                </div>
+                <input type="hidden" value="60" class="maxPrice">
+                <input type="hidden" value="0" class="minPrice">
+              </div>
+            </a>
+          </div>
+
+          <div class="imageZoom">
+            <div style="overflow:hidden; height:742px;" class="zoomWrapper">
+              <img id="img_01" class="img-responsive zoomEff zoom_03" src="{{productDetails?.thumbnail}}"
+                [attr.data-zoom-image]="productDetails?.thumbnail" />
+            </div>
+
+            <div class="muahh-image-circle" id="gallery_01">
+               <a (click)="changeZoomImage(gal.image)" class="elevatezoom-gallery active" *ngFor="let gal of productDetails?.gallery"
+                data-image="assets/thumb2.jpg" data-zoom-image="assets/thumb2.jpg">
+                <img id="" [src]="gal?.image" />
+              </a>
+            </div>
+          </div>
+
+        </div>
+        <!-- <div class="row no-gutters paddtb10">
+          <div class="col-sm-6 col-xs-6">
+            <span class="product-name">{{productDetails?.name}}</span>
+          </div>
+          <div class="col-sm-6 col-xs-6 text-right">
+            <span class="original-price">£ {{productDetails?.variations[0]?.price}}</span>
+          </div>
+        </div> -->
+      </div>
+      <div class="col-sm-7 col-xs-12">
+        <div class="product-detail-discription" style="margin-top:7px;">
+
+          <div class="row">
+            <div class="col-sm-10 col-sm-push-2">
+              <h1 class="gray" style="margin:0 0 5px 0;">{{productDetails?.name}}</h1>
+              <div class="rating-section">
+                <span class="star-rating fs16 four">
+                  <!-- muahh-star -->
+                  <!-- <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i>
+                  <i class="fa fa-star" aria-hidden="true"></i> -->
+                  <i *ngFor="let s of [1, 2, 3, 4, 5]; let i = index " class="fa fa-star" [ngClass]="{ 'checked': (i + 1) <= avgStar == true ? 'checked' : ''}">
+                  </i>
+                </span>
+                |
+                <a class="btn-link active m-link" href="javascript:void(0)" (click)="goToRoute('review')">{{reviewCount}}
+                  Reviews</a>
+                |
+                <a class="btn-link active m-link" href="javascript:void(0)" (click)="addToWishList(productDetails)">Add
+                  to Wishlist <i class="icon icon-charaty"></i></a>
+              </div>
+              <div class="row fs20 price-info">
+                <div class="col-xs-6">
+                  <strong>&pound; {{productDetails?.variations[0].price}}.00</strong>
+                  <br>
+                  <span class="fs16">{{productDetails?.variations[0].sku}}</span>
+                  <!-- <span class="fs16">ER-386-954  {{productDetails?.variations[0].sku}}</span> -->
+                </div>
+                <!-- <div class="col-xs-6 text-right">
+                  <strong>{{productDetails?.sku}} destela</strong>
+                </div> -->
+              </div>
+            </div>
+
+            <div class="col-sm-10 col-sm-push-2">
+              <div style="margin-bottom:25px;">
+                <h3>Description</h3>
+                <p>{{productDetails?.description}}</p>
+                <ul class="list-default">
+                  <li>
+                    <i class="fa fa-check"></i> Floral embroidered cups</li>
+                  <li>
+                    <i class="fa fa-check"></i> Scalloped edge</li>
+                  <li>
+                    <i class="fa fa-check"></i> Sheer mesh</li>
+                  <li>
+                    <i class="fa fa-check"></i> Look after me I am machine washable. Please check my care label for full instructions.</li>
+                  <li>
+                    <i class="fa fa-check"></i> I am made of 100% Polyester</li>
+                  <li>
+                    <i class="fa fa-check"></i> 1 push-up is sexier than ever with pillow-soft</li>
+                  <li>
+                    <i class="fa fa-check"></i> Fully adjustable straps</li>
+                  <!-- <li>
+                    <i class="fa fa-check"></i> Silky pink satin lining</li>
+                  <li>
+                    <i class="fa fa-check"></i> Select choices feature a jeweled charm at center</li> -->
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-sm-10 col-sm-push-2">
+              <div class="red">
+                <a id="colorLink" class="color-link" (click)="GetColorList(productDetails)" href="javascript:void(0)">
+                  <img src="assets/color.png" alt="">
+                </a>
+
+                <ul class="list-inline colors" *ngFor="let color of ColorList">
+
+                  <li *ngIf="color.name == 'White'" (click)="GetImageWithColor(color.name,color.variationId,color.product_id)"
+                    style="background-color:white">
+                    <a title="White"> </a>
+                  </li>
+                  <li *ngIf="color.name == 'Nude'" (click)="GetImageWithColor(color.name,color.variationId,color.product_id)"
+                    style="background-color:nude">
+                    <a title="Nude"> </a>
+                  </li>
+                  <li *ngIf="color.name === 'Grey'" (click)="GetImageWithColor(color.name,color.variationId,color.product_id)"
+                    style="background-color:grey">
+                    <a title="Grey"> </a>
+                  </li>
+                  <li *ngIf="color.name === 'Black'" (click)="GetImageWithColor(color.name,color.variationId,color.product_id)"
+                    style="background-color:black">
+                    <a title="Black"> </a>
+                  </li>
+                  <li *ngIf="color.name === 'Pink'" (click)="GetImageWithColor(color.name,color.variationId,color.product_id)"
+                    style="background-color:pink">
+                    <a title="Pink"> </a>
+                  </li>
+                  <li *ngIf="color.name === 'Red'" (click)="GetImageWithColor(color.name,color.variationId,color.product_id)"
+                    style="background-color:red">
+                    <a title="Red"> </a>
+                  </li>
+                  <li *ngIf="color.name === 'Green'" (click)="GetImageWithColor(color.name,color.variationId,color.product_id)"
+                    style="background-color:green">
+                    <a title="Green"> </a>
+                  </li>
+                  <li *ngIf="color.name === 'Blue'" (click)="GetImageWithColor(color.name,color.variationId,color.product_id)"
+                    style="background-color:blue">
+                    <a title="Blue"> </a>
+                  </li>
+                  <li *ngIf="color.name === 'Purple'" (click)="GetImageWithColor(color.name,color.variationId,color.product_id)"
+                    style="background-color:purple">
+                    <a title="Purple"> </a>
+                  </li>
+                  <li *ngIf="color.name === 'Brown'" (click)="GetImageWithColor(color.name,color.variationId,color.product_id)"
+                    style="background-color:Brown">
+                    <a title="Brown"> </a>
+                  </li>
+                  <li *ngIf="color.name === 'Gold'" (click)="GetImageWithColor(color.name,color.variationId,color.product_id)"
+                    style="background-color:gold">
+
+                    <a title="Gold"> </a>
+                  </li>
+                  <li *ngIf="color.name === 'Print'" (click)="GetImageWithColor(color.name,color.variationId,color.product_id)"
+                    style="display:block;background-color:print">
+                    <a title="Print"> </a>
+                  </li>
+                  <li *ngIf="color.name === 'Multi-coloured'" (click)="GetImageWithColor(color.name,color.variationId,color.product_id)"
+                    style="display:block;background-color:multicolor">
+                    <a title="Multi-coloured"></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-sm-10 col-sm-push-2">
+              <div class="product-option">
+
+                <div class="product-size">
+                  <h3>Size</h3>
+                  <ul class="product-size-list">
+                    <li>30
+                      <ul class="sub-menu">
+                        <li>30A</li>
+                        <li>30B</li>
+                        <li>30C</li>
+                        <li>30D</li>
+                      </ul>
+                    </li>
+                    <li>32
+                      <ul class="sub-menu">
+                        <li>32A</li>
+                        <li>32B</li>
+                        <li>32C</li>
+                        <li>32D</li>
+                      </ul>
+                    </li>
+                    <li>34
+                      <ul class="sub-menu">
+                        <li>34A</li>
+                        <li>34B</li>
+                        <li>34C</li>
+                        <li>34D</li>
+                      </ul>
+                    </li>
+                    <li>36
+                      <ul class="sub-menu">
+                        <li>36A</li>
+                        <li>36B</li>
+                        <li>36C</li>
+                        <li>36D</li>
+                      </ul>
+                    </li>
+                    <li>38
+                      <ul class="sub-menu">
+                        <li>38A</li>
+                        <li>38B</li>
+                        <li>38C</li>
+                        <li>38D</li>
+                      </ul>
+                    </li>
+                    <li>40
+                      <ul class="sub-menu">
+                        <li>40A</li>
+                        <li>40B</li>
+                        <li>40C</li>
+                        <li>40D</li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="product-quantity">
+                  <h3>Quantity</h3>
+                  <ul class="product-quantity-btn">
+                    <li><button class="btn quantity-btn" (click)="DecrementValue(Quantity)">-</button></li>
+                    <li class="data"><label>{{Quantity}}</label></li>
+                    <li><button class="btn quantity-btn" (click)="IncrementValue(Quantity)">+</button></li>
+                  </ul>
+                  <div class="product-add-to-cart">
+                    <button class="btn btn-muahh btn-block" (click)="qtyAddToCart(productDetails)">ADD TO CART</button>
+                  </div>
+                </div>
+
+
+
+                <!-- <div class="product-select">
+                  <h4>Size</h4>
+                  <div class="option">
+                    <select>
+                      <option>Select Size</option>
+                      <option>28</option>
+                      <option>30</option>
+                      <option>32</option>
+                      <option>34</option>
+                      <option>36</option>
+                      <option>38</option>
+                      <option>40</option>
+                      <option>42</option>
+                      <option>44</option>
+                      <option>46</option>
+                    </select>
+                  </div>
+                </div> -->
+                <!-- <div class="product-option">
+                  <h4>Size</h4>
+                  <div>
+                    <button class="btn btn-muahh btn-block" (click)="DecrementValue(Quantity)">-</button>
+                    <label>{{Quantity}}</label>
+                    <button class="btn btn-muahh btn-block" (click)="IncrementValue(Quantity)">+</button>
+                  </div>
+                </div> -->
+              </div>
+            </div>
+            <!-- <div class="col-sm-10 col-sm-push-2">
+              <div class="product-option">
+                  <div class="product-add-to-cart">
+                    <button class="btn btn-muahh btn-block" (click)="qtyAddToCart(productDetails)">ADD TO CART</button>
+                  </div>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <h1 class="red">Complete This Look</h1>
+        <owl-carousel class="complete-this-look" [options]="{items: 5, margin: 10, dots: false, nav: true, loop :true}"
+          [items]="productDetails?.complete_look" [carouselClasses]="['owl-theme', 'sliding']">
+          <div class="item" *ngFor="let item of productDetails?.complete_look;let i = index">
+            <comp-productCumImage [productDetail]="item" [productImagePath]="item.thumbnail" [productPrice]="item?.variations[0]?.price"
+              [productName]="item.name"></comp-productCumImage>
+          </div>
+        </owl-carousel>
+        <!-- <div class="owl-nav">
+            <button type="button" role="presentation" class="owl-prev">
+               <span aria-label="Previous">
+                ‹</span> 
+            </button>
+            <button type="button" role="presentation" class="owl-next">
+              <span aria-label="Next">›</span> 
+            </button>
+          </div> -->
+      </div>
+    </div>
+  </div>
+</div>

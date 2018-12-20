@@ -1,0 +1,118 @@
+<!-- <div class="container-fluid muahh-container" id="section1">
+    <div class="row ads">
+        <div class="col-sm-10">
+            <owl-carousel [options]="{items: 1, autoplay: true, dots: false, navigation: false}" [items]="productImages"
+                [carouselClasses]="['owl-theme', 'sliding']">
+
+                <div class="item muahh-banner" *ngFor="let image of productImages; let i = index">
+                    <img class="img-responsive" [src]="image">
+                </div>
+            </owl-carousel>
+        </div>
+    </div>
+</div> -->
+
+<div class="product-listing-loading product-top" *ngIf="productListLoader">
+    <div class="product-loader"></div>
+</div>
+<main class="container-fluid muahh-container product-top" id="section1Xxx" *ngIf="productListData">
+    <div class="row ads">
+        <div class="col-sm-10">
+            <owl-carousel [options]="{items: 1, autoplay: true, dots: false, navigation: false}" [items]="productImages"
+                [carouselClasses]="['owl-theme', 'sliding']">
+                <div class="item muahh-banner" *ngFor="let image of productImages; let i = index">
+                    <img class="img-responsive" [src]="image">
+                </div>
+            </owl-carousel>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-10 col-xs-12  paddtb10" *ngIf="productList.length >  0">
+            <div class="row">
+                <div *ngFor="let products of productList">
+                    <div class="col-xs-12 col-sm-3 product-item-container" *ngIf="products?.gallery !=''">
+                        <div class="product-icons">
+                            <div class="icon-1">
+                                <a (click)="addToWishList(products)"> <i title="Wishlist" class="fa icon icon-charaty"></i>
+                                </a>
+                            </div>
+                            <div class="icon-2" (click)="addToCart(products)" title="Add to cart">
+                                <i class="icon icon-cart-grey"></i>
+                            </div>
+                            <div class="icon-3" title="Share">
+                                <i class="fa icon-share-grey"></i>
+                                <div class="social-media">
+                                    <a href="http://www.facebook.com/sharer.php?u={{products?.thumbnail}}" target="_blank"
+                                        title="Facebook">
+                                        <i class="fa fa-facebook"></i>
+                                    </a>
+                                    <a title="Twitter" target="_blank" href="https://twitter.com/share?url={{products?.thumbnail}}">
+                                        <i class="fa fa-twitter"></i>
+                                    </a>
+                                    <a href="mailto:contact@muahh.co.uk" title="Send an Email" target="_blank">
+                                        <i class="fa fa-envelope"></i>
+                                    </a>
+                                    <a title="Google" href="https://plus.google.com/share?url={{products?.thumbnail}}"
+                                        target="_blank">
+                                        <i class="fa fa-google-plus"></i>
+                                    </a>
+                                    <a title="Pinterest" href="javascript:void((function()%7Bvar%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','http://assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)%7D)());">
+                                        <i class="fa fa-pinterest-p"></i>
+                                    </a>
+                                    <a href="https://accounts.snapchat.com/" title="Snapchat" target="_blank">
+                                        <i class="fa fa-snapchat"></i>
+                                    </a>
+                                    <a title="Instagram" href="https://www.instagram.com/" target="_blank">
+                                        <i class="fa fa-instagram"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="icon-4" title="Your room" (click)="addToChangingRoom(products)">
+                                <i class="fa icon-trail-room-grey"></i>
+                            </div>
+                            <!-- autoplayHoverPause -->
+                            <owl-carousel [options]="{items: 1, autoplay: false, dots: true, navigation: false,
+                                autoplayHoverPause: true}"
+                                [items]="products?.gallery" [carouselClasses]="['owl-theme', 'row', 'sliding']">
+                                <div class="item muahh-banner img-zoom" *ngFor="let image of this.listGallery(products?.gallery, products?.thumbnail); let i = index">
+                                    <a class="pro-name" [routerLink]="['/product-details', products?.variations[0]?.product_id]">
+                                        <img class="img-responsive loading" [src]="image">
+                                    </a>
+                                </div>
+                            </owl-carousel>
+                        </div>
+                        <!-- *ngFor="let variations of products?.variations" -->
+                        <div class="row pro-price no-gutters" >
+                            <div class="col-xs-8 col-sm-8">
+                                <a class="pro-name" [routerLink]="['/product-details', products.variations[0].product_id]">
+                                    <span class="product-name">{{products?.name}}</span>
+                                </a>
+                            </div>
+                            <div class="col-xs-4 col-sm-4 text-right">
+                                <div class="original-price">
+                                    <span id="orignalPrice">&pound;{{products.variations[0]?.price}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center" *ngIf="!productList">
+                    <div class="alert alert-danger">
+                        <strong>Products</strong> not found.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2 hidden-xs">
+            <div class="fixed-imageXxx">
+                <div class="img-3d">
+                    <h3>Hi, I'm Amy!</h3>
+                    <div class="model-3D">
+                        <h3>Hi, I'm Amy!</h3>
+                        <img src="assets/3d.png" title="" alt="" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

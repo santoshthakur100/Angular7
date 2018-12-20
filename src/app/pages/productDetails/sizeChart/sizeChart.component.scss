@@ -1,0 +1,18 @@
+.tabcontent {
+    display: block;
+    padding: 12px;
+    .colors {
+        margin: 0;
+        float: left;
+        li {
+            padding: 10px;
+            box-shadow: 0 2px 2px #888;
+            display: inline-block;
+            margin: 5px 0;
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+    }
+}

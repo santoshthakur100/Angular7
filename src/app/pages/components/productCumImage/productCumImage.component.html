@@ -1,0 +1,67 @@
+<div class="item">
+  <div class="product-icons" style="margin:0;">
+      <div class="icon-1" title="Wishlist">
+          <i class="fa icon icon-charaty" (click)="addToWishList(productDetail)"></i>
+      </div>
+      <div class="icon-2" title="Add to cart">
+          <i class="icon icon-cart-grey" (click)="addToCart(productDetail)"></i>
+      </div>
+      <div class="icon-3" title="Share">
+          <i class="fa icon-share-grey"></i>
+          <div class="social-media">
+                <a href="http://www.facebook.com/sharer.php?u={{products?.thumbnail}}" target="_blank" title="Facebook">
+                    <i class="fa fa-facebook"></i>
+                </a>
+                <a title="Twitter" target="_blank" href="https://twitter.com/share?url={{products?.thumbnail}}">
+                    <i class="fa fa-twitter"></i>
+                </a>
+                <a href="mailto:contact@muahh.co.uk" title="Send an Email" target="_blank">
+                    <i class="fa fa-envelope"></i>
+                </a>
+                <a title="Google" href="https://plus.google.com/share?url={{products?.thumbnail}}" target="_blank">
+                    <i class="fa fa-google-plus"></i>
+                </a>
+                <a title="Pinterest" href="javascript:void((function()%7Bvar%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','http://assets.pinterest.com/js/pinmarklet.js?r='+Math.random()*99999999);document.body.appendChild(e)%7D)());">
+                    <i class="fa fa-pinterest-p"></i>
+                </a >
+                <a href="https://accounts.snapchat.com/" title="Snapchat" target="_blank">
+                    <i class="fa fa-snapchat"></i>
+                </a>
+                <a title="Instagram" href="https://www.instagram.com/" target="_blank">
+                    <i class="fa fa-instagram"></i>
+                </a>
+                </div>
+      </div>
+      <div class="icon-4" title="Your room">
+        <i class="fa icon-trail-room-grey" (click)="addToChangingRoom(productDetail)"></i>
+    </div>
+      <!-- <div class="icon-4" title="Charity">
+          <i class="fa icon-charaty"></i>
+          <a href="javascript:void(0)" title="Charity">
+              <div class="product-range"> -->
+                  <!-- product_class -->
+                  <!-- <div class="charity-range-bar"> -->
+                      <!-- charity-bar -->
+                      <!-- <input class="charity-range-slider slider" id="myRange" type="range" min="0" max="100" value="0" data-toggle="tooltip" data-placement="top"
+                      />
+                  </div>
+                  <input type="hidden" value="60" class="maxPrice">
+                  <input type="hidden" value="0" class="minPrice">
+              </div>
+          </a>
+      </div> -->
+      <div>
+          <div class="item">
+              <img class="img-responsive" (click)="goToProductDetail(productDetail?.id)" [src]="productImagePath" />
+          </div>
+      </div>
+  </div>
+  <div class="row no-gutters paddtb10">
+      <div class="col-sm-6">
+          <span class="product-name">{{productName}}</span>
+      </div>
+      <div class="col-sm-6 text-right">
+          <span class="original-price">£{{productPrice}} </span>
+      </div>
+  </div>
+</div>

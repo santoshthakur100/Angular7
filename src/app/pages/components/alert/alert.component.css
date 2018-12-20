@@ -1,0 +1,16 @@
+.alert {
+    top: 23px;
+    right: 50px;
+    position: fixed;
+    margin: 0;
+    text-align: center;
+    border: none;
+    border-radius: 10px;
+    z-index: 9999;
+    padding: 15px;
+    font-size: 15px;
+}
+
+.close {
+    font-size: 34px !important;
+}

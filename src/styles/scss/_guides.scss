@@ -1,0 +1,238 @@
+.top-space-guide{
+    margin-top: 109px;
+}
+.padlr0{
+    padding-left: 0;
+    padding-right: 0;
+}
+.guide-component{
+
+    .guide-heading{
+        text-align: center;
+        position: relative;
+        &:before{
+            content: '';
+            width: 100%;
+            border-top: 1px solid #aa0114;
+            position: absolute;
+            top: 10px;
+            left: 0;
+            z-index: -1;
+        }
+        span{
+           background: #fff;
+           display: inline-block; 
+           padding: 0 10px;
+        }
+    }
+    
+    .guide-top-banner{
+        background: url('../../assets/guide5.jpg') no-repeat;
+        background-size:cover;
+        min-height:300px; 
+        width: 100%;
+        float: left;
+        text-align: center;
+        .guide-text{
+            font-size:70px;
+            text-align: center; 
+            color: #fff;
+            padding-top: 90px;
+        }
+    }
+    
+    .guide-bottom-banner{
+        width: 100%;
+        float: left;
+        text-align: center;
+        img{
+            width: 100%;
+        }
+        // .guide-text{
+        //     font-size:70px;
+        //     text-align: center; 
+        //     color: #fff;
+        //     padding-top: 90px;
+        // }
+    }
+    
+
+    .icon-lips{
+        display: inline-block;
+        //font-size: 200px;
+        vertical-align: middle;
+    }
+    .sizing-guides{
+        h3{
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 24px;
+            @include breakpoint(xs){
+                font-size:18px; 
+            }
+            
+        }
+    }
+    .video-text-panel{
+        h3{
+            font-size: 24px;
+            @include breakpoint(xs){
+                font-size:18px; 
+            }
+        }
+    }
+    .are-u-wearing{
+        border-bottom:1px solid #aa0114;
+        padding-bottom: 15px;
+   
+        h3{
+            margin-bottom: 20px;
+            font-size: 24px;
+            @include breakpoint(xs){
+                font-size: 18px;
+            }
+        }
+        p{
+            line-height: 30px;
+            font-family: 'Playball', cursive;
+            font-size: 28px;
+            line-height: normal;
+            color: #888;
+            padding-left:20%;
+            padding-right: 20%; 
+            @include breakpoint(xs){
+                font-size: 20px;
+                padding-left:5%;
+                padding-right: 5%; 
+            }
+        }
+    }
+    .how-to-measure{
+        
+        p{
+            margin-bottom: 15px;
+        }
+    }
+
+    .our-guide{
+        border: 1px solid #a90313;
+        background:#fef4f3;
+        padding: 20px 0;
+        float: left;
+        width: 100%;
+    }
+
+    .video-how-to-measure{
+        border:1px solid #aa0114;
+        padding: 15px;
+        p{
+            margin-bottom: 15px;
+        }
+    }
+
+
+    .read-the-blog{
+        h3{
+            margin-bottom: 20px;
+            font-size: 24px;
+            @include breakpoint(xs){
+                font-size: 18px;
+            }
+        }
+    }
+}
+
+
+.our-guide-icons {
+    font-family: 'Playball', cursive;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    margin: 10px 1%;
+    //width: 100%;
+    color: #a90313;
+    text-align: center;
+    -webkit-perspective: 50em;
+    perspective: 50em;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    padding-top: 25px;
+    background: #fff;
+    border:1px solid #a90313;
+    overflow: hidden;
+
+    .icon-2{
+        font-size: 100px;
+        transition: all 0.2s linear;
+    }
+   
+  }
+  .our-guide-icons * {
+    -webkit-box-sizing: padding-box;
+    box-sizing: padding-box;
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+  }
+  .our-guide-icons .icon-2 {
+    max-width: 100%;
+    vertical-align: top;
+  }
+  .our-guide-icons figcaption {
+    top: 50%;
+    left: 20px;
+    right: 20px;
+    position: absolute;
+    opacity: 0;
+    z-index: 1;
+  }
+
+
+  .our-guide-icons:after {
+    background-color: #ffffff;
+    position: absolute;
+    content: "";
+    display: block;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+    -webkit-transform: rotateX(-90deg);
+    transform: rotateX(-90deg);
+    -webkit-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    opacity: 0;
+  }
+  .our-guide-icons a {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    z-index: 1;
+  }
+  .our-guide-icons:hover figcaption,
+  .our-guide-icons.hover figcaption {
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    opacity: 1;
+    -webkit-transition-delay: 0.2s;
+    transition-delay: 0.2s;
+  }
+  .our-guide-icons:hover:after,
+  .our-guide-icons.hover:after {
+    -webkit-transform: rotateX(0);
+    transform: rotateX(0);
+    opacity: 0.9;
+  }
+  
+  .our-guide-icons{
+     transition: all 0.5s linear;
+  }
+  .our-guide-icons:hover .icon-2{
+    opacity: 0.5;
+    transform: scale(1.1);
+  }

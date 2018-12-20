@@ -1,0 +1,50 @@
+ 
+.paddtb10{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+body {
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, sans-serif;
+}
+
+
+.navbar-default{
+  border: none;
+}
+
+
+
+
+  .product-icons{
+
+
+  .owl-dots{
+    position: absolute;
+    bottom: -25px;
+    z-index: 5;
+    width: 100%;
+    text-align: center;
+    .owl-dot{
+      display: inline-block;
+      span {
+          width: 10px;
+          height: 10px;
+          margin: 5px 3px;
+          background: #ffe9e8;
+          display: inline-block;
+          transition: opacity .2s ease;
+          border-radius: 50%;
+          display: inline-block;
+          
+      }
+      &.active{ 
+        span{
+          background: #aa0114;
+        }
+        
+      }
+    } 
+  }
+
+}

@@ -1,0 +1,41 @@
+.customer-section{
+    position: relative;
+    .customer-behaviour{
+        display: none;
+        background: #fff;
+        position: absolute;
+        z-index: 5;
+        right: 0;
+        top: 39px;
+        min-width: 200px;
+        padding: 15px;
+
+        &::after{
+            content: '';
+            display: inline-block;
+            position: absolute;
+            top: -10px;
+            right: 10px;
+            width: 0; 
+            height: 0; 
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 10px solid #fff;
+        }
+
+        ol{
+            padding: 0;
+           > li{
+                display: block; float: none; text-align-last: left;
+                a{
+                    color: #aa0114;
+                }
+            }
+        }
+    }
+    &:hover{
+        .customer-behaviour{
+            display: block;
+        }
+    }
+}

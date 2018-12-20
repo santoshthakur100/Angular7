@@ -1,0 +1,106 @@
+<!-- <h1>This is for testing git lab</h1> -->
+
+<div class="muahh-about-component top-space-about" >
+  <div class="container-fluid body-wrapper">
+    <div class="row">
+      <div class="col-md-12">
+          <div class="submit-your-review">
+              <button class="about-btn active" [class.active]="aboutUsComponent" (click)="aboutUsComponentFun($event, item)">About Us</button> <!-- [routerLink]="['/aboutus']" -->
+              <button class="review-btn" [class.active]="reviewsUsComponent"     (click)="reviewsUsComponentFun($event, item)">Our Reviews</button> <!-- [routerLink]="['/reviews']" -->
+          </div>
+      </div>
+    </div>
+  </div>
+    
+
+  <div class="container-fluid body-wrapper" *ngIf="aboutUsComponent">
+      <div class="row about-content">
+          <div class="col-xs-12 col-sm-6 col-md-4">
+              <img src="/assets/about-us-lady.jpg" alt="">
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-7 col-md-push-1">
+              <div class="about-content-para text-justify">
+                <h2>
+                  <span>A</span>BOUT <span>M</span>UAHH!
+                </h2>
+                <p>This website has been developed by our founder with the vision that online shopping experiences can be as engaging as retail experience. With his MBA knowledge, extensive experience of working in retail, and additional research, we have developed this site to offer you distraction and advertising free shopping experience, with an assisted shopping element of visiting a real store. Here are just a few things we are excited about which we know will make your shopping with us hassle free and fun!</p>
+              </div>
+          </div>
+          <!-- <h1>New about us</h1> -->
+          <!-- <div class="col-xs-12 col-sm-6 col-md-4 col-md-push-8">
+            <div class="about-top-image">
+              <div class="img-one animated shake">
+                <img src="/assets/slide2.jpg" alt="">
+              </div>
+              <div class="img-two animated swing">
+                <img src="/assets/slide1.jpg" alt="">
+              </div>
+            </div>
+        </div>
+
+          <div class="col-xs-12 col-sm-6 col-md-8 col-md-pull-4">
+            <div class="about-content-para text-justify">
+              <h2>WE ARE ALL ABOUT YOU!</h2>
+              <p>This website has been developed by our founder with the vision that online shopping experiences can be as engaging as retail experience. With his MBA knowledge, extensive experience of working in retail, and additional research, we have developed this site to offer you distraction and advertising free shopping experience, with an assisted shopping element of visiting a real store. Here are just a few things we are excited about which we know will make your shopping with us hassle free and fun!</p>
+            </div>
+          </div> -->
+      </div>
+      <div class="row"><div class="separator"><!-- Space --></div></div>
+      <!-- 6 Segment  -->
+      <div class="row about-carousel">
+        <div class="col-sm-12 text-center">
+          <owl-carousel [options]="{items: 3, dots: true, nav: true, navText: [ '<i class=chevron-left></i>', '<i class=chevron-right></i>'] }" [items]="aboutList" [carouselClasses]="['owl-theme', 'sliding','items-carousel', 'owl-carousel']">
+            <div class="item img-zoom" *ngFor="let item of aboutList">
+              <div class="about-carousel-item snip1273">
+                  <div class="show-content">
+                    <i class="icon {{item.icon}}"></i>
+                    <h4 class="text-uppercase">{{item.head}}</h4>
+                    <p>
+                      {{item.para}}
+                    </p>  
+                    <!-- <button class="btn btn-primery">Show More</button> -->
+                  </div>
+                  <div class="hover-content">
+                      <h4 class="text-uppercase">{{item.head}}</h4>
+                      <p class="text-justify">
+                        {{item.disc}}
+                      </p>
+                  </div>
+              </div>
+            </div>
+          </owl-carousel>
+        </div>
+      </div>
+      <div class="separator"><!-- Space --></div>
+      <!-- Mission -->
+      <div class="row about-mission">
+      
+        <div class="col-xs-12 col-sm-8">
+          <div class="content">
+            <ul class="tab-list text-uppercase">
+              <!-- <li (click)="mission($event, item)" [ngClass]="{'active': missionTab === item}" class="active"> Mission</li>
+              <li (click)="design($event, item)" [ngClass]="{'active': designTab === item}">Design</li> -->
+              <li [class.active]="missionContent" (click)="mission($event, item)"> Mission</li>
+              <li [class.active]="designContent" (click)="design($event, item)">Design</li>
+            </ul>
+            <p *ngIf="missionContent">
+                beautiful quality lingerie, at a great price, tailored to you is at the heart of what we do.We believe that what we wear on the inside is just as important as what we wear on the outside. That is why we pride ourselves in designing lingerie which is comfortable, offers a great fit, and makes our customers feel amazing whatever the occasion.</p>
+
+            <p *ngIf="designContent">
+                Our designs are unique to Muahh. We work hard to develop designs which are feminine, sensual, sophisticated and fun - empowering you to be at your best every day.
+            </p>
+          </div>
+        </div>
+      
+        <div class="col-xs-12 col-sm-4">
+          <div class="image imageZoom stack twisted">
+            <img src="/assets/about-us-lady-2.jpg" class="img-responsive" alt="">
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <app-reviews *ngIf="reviewsUsComponent"></app-reviews>
+
+</div>
+

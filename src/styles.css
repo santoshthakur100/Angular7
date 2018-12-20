@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Playball');
+
+@import "./assets/font-icons/style.css";
+@import "../node_modules/owl.carousel/dist/assets/owl.carousel.css";
+@import "../node_modules/owl.carousel/dist/assets/owl.theme.default.css";
+
+.mt-100 {
+    margin-top: 100px !important;
+}
+
+.modal-backdrop.fade {
+    opacity: 0.5 !important;
+}
+
+.modal-open .modal.fade {
+    opacity: 1 !important;
+}
+
+.model-content {
+   top: 320px !important;
+}
+
+
+

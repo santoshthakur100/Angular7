@@ -1,0 +1,19 @@
+.pro-name{
+	color:#555
+}
+
+.pro-name:hover{
+	color:#000;
+	text-decoration: none
+}
+
+.pro-name {
+    text-transform: capitalize;
+    font-size: 13px;
+    line-height: 1;
+}
+
+
+.loading {
+ // background: transparent url('assets/preLoader.svg') center no-repeat;
+}

@@ -1,0 +1,598 @@
+<main class="top-space">
+  <section class="my-account-component">
+    <div class="container">
+
+      <h2 class="red">PERSONAL DETAILS</h2>
+      <hr />
+
+      <ul class="nav nav-tabs">
+        <li class="active">
+          <a data-toggle="tab" href="#personalDetails">Personal Details</a>
+        </li>
+        <li>
+          <a data-toggle="tab" href="#myOrders">My Orders</a>
+        </li>
+        <li>
+          <a data-toggle="tab" href="#addresses">Addresses</a>
+        </li>
+        <!-- <li><a data-toggle="tab" href="#paymentSettings">Payment Settings</a></li> -->
+        <!-- <li>
+          <a data-toggle="tab" href="#charityPoints">Charity Points</a>
+        </li> -->
+      </ul>
+
+      <div class="tab-content">
+          
+     <div id="personalDetails" class="tab-pane fade in active">
+          <!-- <h3>HOME</h3>
+          <p>Some content.</p> -->
+            <form  [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <div class="row pay-body" >
+            <h3 class="red">ABOUT ME</h3>
+            <div class="col-sm-2">
+              <div class="form-group">
+                <label>Title</label>
+                <select class="form-control">
+                    <option value="">--Select--</option>
+                  <option value="Mr">Mr.</option>
+                  <option value="Mrs">Mrs.</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label>First Name</label>
+                <input type="text" formControlName="firstName" placeholder="First Name" class="form-control"/>
+                <div *ngIf="submitted && loginForm.controls.firstName.errors"> 
+                    <div *ngIf="loginForm.controls.firstName.errors.required || loginForm.controls.firstName.invalid">Please Enter First Name</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label>Last Name</label>
+                <input type="text" formControlName="lastName" placeholder="Last Name" class="form-control"/>
+                <div *ngIf="submitted && loginForm.controls.lastName.errors"> 
+                    <div *ngIf="loginForm.controls.lastName.errors.required || loginForm.controls.lastName.invalid">Please Enter Last Name</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-2">
+              <div class="form-group">
+                <label>Date of Birth</label>
+                <input type="text" formControlName="Dob" placeholder="DOB" class="form-control"/>
+                <div *ngIf="submitted && loginForm.controls.Dob.errors"> 
+                    <div *ngIf="loginForm.controls.Dob.errors.required || loginForm.controls.Dob.invalid">Please Enter DOB</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-2">
+              <div class="form-group">
+                <label>Gender</label>
+                <select class="form-control" formControlName="Gender">
+                    <option value="">--Select--</option>
+                  <option value="1">Male</option>
+                  <option value="2">Female</option>
+                </select>
+                <div *ngIf="submitted && loginForm.controls.Gender.errors"> 
+                  <div *ngIf="loginForm.controls.Gender.errors.required || loginForm.controls.Gender.invalid">Please Enter Gender</div>
+              </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12">
+              <hr>
+            </div>
+          </div>
+
+          <div class="row pay-body">
+            <h3 class="red">LOGIN DETAILS</h3>
+
+            <div class="col-sm-6">
+              <div class="checkbox">
+                <label class="check-box">
+                  Sign me up for exclusive offers & advice by email
+                  <input type="checkbox" checked="checked">
+                  <span class="check-box--mark"></span>
+                </label>
+              </div>
+              <div class="checkbox">
+                <label class="check-box">
+                  Sign me up for exclusive offers & advice by post
+                  <input type="checkbox" checked="checked">
+                  <span class="check-box--mark"></span>
+                </label>
+              </div>
+
+              <div class="checkbox">
+                <label class="check-box">
+                  I’m happy to receive promotions by email & post from associated Companies
+                  <input type="checkbox" checked="checked">
+                  <span class="check-box--mark"></span>
+                </label>
+              </div>
+
+              <div class="form-group">
+                By registering you are agreeing to our Terms & Conditions
+              </div>
+              <!-- <button type="submit" class="btn btn-muahh">Save</button> -->
+            </div>
+            <div class="col-sm-6">
+              <!-- <h3 class="red">I am a returning Customer</h3> -->
+
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text" formControlName="Email" placeholder="Email" class="form-control"/>
+                    <div *ngIf="submitted && loginForm.controls.Email.errors"> 
+                        <div *ngIf="loginForm.controls.Email.errors.required || loginForm.controls.Email.invalid">Please Enter Email</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="c-email">Confirm Email </label>
+                    <input type="text" formControlName="Cemail" placeholder="Confirm Email" class="form-control"/>
+                    <div *ngIf="submitted && loginForm.controls.Cemail.errors"> 
+                        <div *ngIf="loginForm.controls.Cemail.errors.required || loginForm.controls.Cemail.invalid">Please Enter Confirm Email</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="pwd">password </label>
+                    <input type="password" formControlName="Password" placeholder="Password" class="form-control"/>
+                    <div *ngIf="submitted && loginForm.controls.Password.errors"> 
+                        <div *ngIf="loginForm.controls.Password.errors.required || loginForm.controls.Password.invalid">Please Enter Password</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="c-pwd">Confirm password </label>
+                    <input type="password" formControlName="cPassword" placeholder="Confirm Password" class="form-control"/>
+                    <div *ngIf="submitted && loginForm.controls.cPassword.errors"> 
+                        <div *ngIf="loginForm.controls.cPassword.errors.required || loginForm.controls.cPassword.invalid">Please Enter Confirm Password</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- <div class="form-check">
+                      <label class="check-box">
+                        Remember me
+                        <input type="checkbox" checked="checked">
+                        <span class="check-box--mark"></span>
+                      </label>
+                    </div> -->
+              <!-- <div class="form-group">
+                      <a class="red" href="#">Forgot Password</a>
+                    </div> -->
+              <button type="submit"  class="btn btn-muahh">Save</button>
+            </div>
+          </div>
+          </form>
+      </div>
+       
+
+        <div id="myOrders" class="tab-pane fade">
+          <!-- <h3>Menu 1</h3>
+          <p>Some content in menu 1.</p> -->
+          <div class="row">
+            <h3 class="red">ORDERS</h3>
+            <div class="col-sm-12">
+              <div class="pay-body">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th>Order Placed</th>
+                      <th>Total </th>
+                      <th>Delvered To</th>
+                      <th>Order No : 12487384738473349</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="active">
+                      <td>24 June 2018</td>
+                      <td>&pound; 147.00</td>
+                      <td>Angela Mesropean</td>
+                      <td>
+                        <a href="#">Order Details</a>
+                        <a href="#">Invoice</a>
+                      </td>
+                    </tr>
+                    <tr class="active">
+                      <td>24 June 2018</td>
+                      <td>&pound; 147.00</td>
+                      <td>Angela Mesropean</td>
+                      <td>
+                        <a href="#">Order Details</a>
+                        <a href="#">Invoice</a>
+                      </td>
+                    </tr>
+                    <tr class="active">
+                      <td>24 June 2018</td>
+                      <td>&pound; 147.00</td>
+                      <td>Angela Mesropean</td>
+                      <td>
+                        <a href="#">Order Details</a>
+                        <a href="#">Invoice</a>
+                      </td>
+                    </tr>
+
+                    <tr class="active">
+                      <td>24 June 2018</td>
+                      <td>&pound; 147.00</td>
+                      <td>Angela Mesropean</td>
+                      <td>
+                        <a href="#">Order Details</a>
+                        <a href="#">Invoice</a>
+                      </td>
+                    </tr>
+
+                    <tr class="active">
+                      <td>24 June 2018</td>
+                      <td>&pound; 147.00</td>
+                      <td>Angela Mesropean</td>
+                      <td>
+                        <a href="#">Order Details</a>
+                        <a href="#">Invoice</a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12">
+              <hr>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="pay-body">
+
+                <div class="row">
+                  <h3 class="red">DELIVERED ON 2 JULY 2017</h3>
+                  <div class="col-sm-4">
+                    <div class="shopping-cart-component">
+                      <div class="container-fluid">
+                        <div class="repeat-cart" *ngFor="let x of [1,2]">
+                          <div class="row sec2">
+                            <div class="col-sm-3 col-xs-3" style="padding-right: 0;">
+                              <figure>
+                                <img class="img-responsive" src="https://dm.victoriassecret.com/p/148x199/tif/60/6d/606d91c6be584cf4b22a2106c522701c/006_SU18_BRA_043_SS_062_e6970987.jpg"
+                                  alt="{{x}}" />
+                              </figure>
+                            </div>
+                            <div class="col-sm-9 col-xs-9">
+                              <div class="fs16 red"> Mini Floral Lace Bustier </div>
+                              <div class="a1 fs12 mb10"> DG-377-323 | In Stock </div>
+                              <div class="a2 fs12">
+                                <span>Color </span>
+                                <span> Purple Crossdye (E3R) </span>
+                              </div>
+                              <div class="a2 fs12">
+                                <span>Size </span>
+                                <span> 32B</span>
+                              </div>
+                              <div class="a2 fs12">
+                                <span>Qty </span>
+                                <span> 1 </span>
+                              </div>
+                              <div class="a1 mt10 price red"> &pound; 621 </div>
+                              <br>
+                              <button class="btn fluid btn-muahh-bdr">Buy Again</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="shopping-cart-component">
+                      <div class="container-fluid">
+                        <div class="repeat-cart" *ngFor="let x of [1,2]">
+                          <div class="row sec2">
+                            <div class="col-sm-3 col-xs-3" style="padding-right: 0;">
+                              <figure>
+                                <img class="img-responsive" src="https://dm.victoriassecret.com/p/148x199/tif/60/6d/606d91c6be584cf4b22a2106c522701c/006_SU18_BRA_043_SS_062_e6970987.jpg"
+                                  alt="{{x}}" />
+                              </figure>
+                            </div>
+                            <div class="col-sm-9 col-xs-9">
+                              <div class="fs16 red"> Mini Floral Lace Bustier </div>
+                              <div class="a1 fs12 mb10"> DG-377-323 | In Stock </div>
+                              <div class="a2 fs12">
+                                <span>Color </span>
+                                <span> Purple Crossdye (E3R) </span>
+                              </div>
+                              <div class="a2 fs12">
+                                <span>Size </span>
+                                <span> 32B</span>
+                              </div>
+                              <div class="a2 fs12">
+                                <span>Qty </span>
+                                <span> 1 </span>
+                              </div>
+                              <div class="a1 mt10 price red"> &pound; 621 </div>
+                              <br>
+                              <button class="btn fluid btn-muahh-bdr">Buy Again</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="shopping-cart-component">
+                      <div class="container-fluid">
+                        <div class="repeat-cart" *ngFor="let x of [1,2]">
+                          <div class="row sec2">
+                            <div class="col-sm-3 col-xs-3" style="padding-right: 0;">
+                              <figure>
+                                <img class="img-responsive" src="https://dm.victoriassecret.com/p/148x199/tif/60/6d/606d91c6be584cf4b22a2106c522701c/006_SU18_BRA_043_SS_062_e6970987.jpg"
+                                  alt="{{x}}" />
+                              </figure>
+                            </div>
+                            <div class="col-sm-9 col-xs-9">
+                              <div class="fs16 red"> Mini Floral Lace Bustier </div>
+                              <div class="a1 fs12 mb10"> DG-377-323 | In Stock </div>
+                              <div class="a2 fs12">
+                                <span>Color </span>
+                                <span> Purple Crossdye (E3R) </span>
+                              </div>
+                              <div class="a2 fs12">
+                                <span>Size </span>
+                                <span> 32B</span>
+                              </div>
+                              <div class="a2 fs12">
+                                <span>Qty </span>
+                                <span> 1 </span>
+                              </div>
+                              <div class="a1 mt10 price red"> &pound; 621 </div>
+                              <br>
+                              <button class="btn fluid btn-muahh-bdr">Buy Again</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <hr />
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="pay-body">
+
+                      <div class="row">
+                        <h3 class="red">SAVED ITEMS </h3>
+                        <div class="col-sm-4">
+                          <div class="shopping-cart-component">
+                            <div class="container-fluid">
+                              <div class="repeat-cart" *ngFor="let x of [1,2]">
+                                <div class="row sec2">
+                                  <div class="col-sm-3 col-xs-3" style="padding-right: 0;">
+                                    <figure>
+                                      <img class="img-responsive" src="https://dm.victoriassecret.com/p/148x199/tif/60/6d/606d91c6be584cf4b22a2106c522701c/006_SU18_BRA_043_SS_062_e6970987.jpg"
+                                        alt="{{x}}" />
+                                    </figure>
+                                  </div>
+                                  <div class="col-sm-9 col-xs-9">
+                                    <div class="fs16 red"> Mini Floral Lace Bustier </div>
+                                    <div class="a1 fs12 mb10"> DG-377-323 | In Stock </div>
+                                    <div class="a2 fs12">
+                                      <span>Color </span>
+                                      <span> Purple Crossdye (E3R) </span>
+                                    </div>
+                                    <div class="a2 fs12">
+                                      <span>Size </span>
+                                      <span> 32B</span>
+                                    </div>
+                                    <div class="a2 fs12">
+                                      <span>Qty </span>
+                                      <span> 1 </span>
+                                    </div>
+                                    <div class="a1 mt10 price red"> &pound; 621 </div>
+                                    <br>
+                                    <button class="btn fluid btn-muahh-bdr">Buy Now</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+                        <div class="col-sm-4">
+                          <div class="shopping-cart-component">
+                            <div class="container-fluid">
+                              <div class="repeat-cart" *ngFor="let x of [1,2]">
+                                <div class="row sec2">
+                                  <div class="col-sm-3 col-xs-3" style="padding-right: 0;">
+                                    <figure>
+                                      <img class="img-responsive" src="https://dm.victoriassecret.com/p/148x199/tif/60/6d/606d91c6be584cf4b22a2106c522701c/006_SU18_BRA_043_SS_062_e6970987.jpg"
+                                        alt="{{x}}" />
+                                    </figure>
+                                  </div>
+                                  <div class="col-sm-9 col-xs-9">
+                                    <div class="fs16 red"> Mini Floral Lace Bustier </div>
+                                    <div class="a1 fs12 mb10"> DG-377-323 | In Stock </div>
+                                    <div class="a2 fs12">
+                                      <span>Color </span>
+                                      <span> Purple Crossdye (E3R) </span>
+                                    </div>
+                                    <div class="a2 fs12">
+                                      <span>Size </span>
+                                      <span> 32B</span>
+                                    </div>
+                                    <div class="a2 fs12">
+                                      <span>Qty </span>
+                                      <span> 1 </span>
+                                    </div>
+                                    <div class="a1 mt10 price red"> &pound; 621 </div>
+                                    <br>
+                                    <button class="btn fluid btn-muahh-bdr">Buy Now</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-4">
+                          <div class="shopping-cart-component">
+                            <div class="container-fluid">
+                              <div class="repeat-cart" *ngFor="let x of [1,2]">
+                                <div class="row sec2">
+                                  <div class="col-sm-3 col-xs-3" style="padding-right: 0;">
+                                    <figure>
+                                      <img class="img-responsive" src="https://dm.victoriassecret.com/p/148x199/tif/60/6d/606d91c6be584cf4b22a2106c522701c/006_SU18_BRA_043_SS_062_e6970987.jpg"
+                                        alt="{{x}}" />
+                                    </figure>
+                                  </div>
+                                  <div class="col-sm-9 col-xs-9">
+                                    <div class="fs16 red"> Mini Floral Lace Bustier </div>
+                                    <div class="a1 fs12 mb10"> DG-377-323 | In Stock </div>
+                                    <div class="a2 fs12">
+                                      <span>Color </span>
+                                      <span> Purple Crossdye (E3R) </span>
+                                    </div>
+                                    <div class="a2 fs12">
+                                      <span>Size </span>
+                                      <span> 32B</span>
+                                    </div>
+                                    <div class="a2 fs12">
+                                      <span>Qty </span>
+                                      <span> 1 </span>
+                                    </div>
+                                    <div class="a1 mt10 price red"> &pound; 621 </div>
+                                    <br>
+                                    <button class="btn fluid btn-muahh-bdr">Buy Now</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="addresses" class="tab-pane fade">
+          <!-- <h3>Menu 2</h3>
+          <p>Some content in menu 2.</p> -->
+          <div class="row">
+            <h3 class="red">ADDRESSES</h3>
+            <div class="col-sm-12">
+              <div class="pay-body">
+                <div class="row">
+              <form  [formGroup]="addressForm" (ngSubmit)="onSubmit()">
+                  <div class="col-sm-6">
+                    <h4 style="padding-left: 0;">Delivery Address</h4>
+                    <div class="form-group">
+                      <label for="Username">User Name</label>
+                      <input type="text" formControlName="userName" placeholder="Angela Mesropean" class="form-control"/>
+                      <div *ngIf="submitted && addressForm.controls.userName.errors"> 
+                          <div *ngIf="addressForm.controls.userName.errors.required || addressForm.controls.userName.invalid">Please Enter User Name</div>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="Username">Address</label>
+                      <textarea rows="4" formControlName="Address" class="form-control">71 Pilgrim Avenue Chevy Chase, MD 20815 71 Pilgrim Avenue Chevy Chase, MD 20815
+                        </textarea>
+                        <div *ngIf="submitted && addressForm.controls.Address.errors"> 
+                            <div *ngIf="addressForm.controls.Address.errors.required || addressForm.controls.Address.invalid">Please Enter Addess</div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="Phone">Phone</label>
+                      <input type="text" formControlName="PhoneNo" placeholder="Phone No." class="form-control"/>
+                      <div *ngIf="submitted && addressForm.controls.PhoneNo.errors"> 
+                          <div *ngIf="addressForm.controls.PhoneNo.errors.required || addressForm.controls.PhoneNo.invalid">Please Enter Phone No.</div>
+                      </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-muahh"> Add Delivery Address </button>
+                  </div>
+              </form>
+                  <div class="col-sm-6">
+                    
+                    <h4 style="padding-left: 0;">Billing Address</h4>
+                    <div class="form-group">
+                      <label for="Username">Username</label>
+                      <input type="Username" class="form-control" id="Username" placeholder="Angela Mesropean">
+                    </div>
+
+                    <div class="form-group">
+                      <label for="Username">Username</label>
+                      <textarea rows="4" class="form-control">71 Pilgrim Avenue Chevy Chase, MD 20815 71 Pilgrim Avenue Chevy Chase, MD 20815
+                    </textarea>
+                    </div>
+
+                    <div class="form-check">
+                      <label class="check-box">
+                        Make this as my Delivery Address
+                        <input type="checkbox" checked="checked">
+                        <span class="check-box--mark"></span>
+                      </label>
+                    </div>
+                    <br>
+                    <button type="button" class="btn btn-muahh"> Add Delivery Address </button>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- <div id="charityPoints" class="tab-pane fade">
+
+          <div class="row">
+            <h3 class="red">CHARITY POINTS</h3>
+            <div class="col-sm-6">
+              <div class="pay-body">
+
+                <div class="form-group">
+                  <span class="red">Your Balance</span> : 608 Points = 5.08
+                </div>
+                <div class="form-group">
+                  <span class="red">Your Contribution</span> : You have Contributed 60.80 to our Cause
+                </div>
+                <button type="submit" class="btn btn-muahh">Redeem</button>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                Generate discount code for Muuahh Purchase
+                <br> Donate to Charity
+                <br> Generate discount code for Muuahh Purchase
+                <br> Generate discount code for Muuahh Purchase
+              </div>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </section>
+</main>

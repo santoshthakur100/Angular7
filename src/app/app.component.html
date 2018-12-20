@@ -1,0 +1,103 @@
+<app-alert></app-alert>
+<router-outlet></router-outlet>
+
+
+<!--Start : Subscribe Newsletter -->
+<div class="subscribe-box" *ngIf="noThanks">
+    <span id="closeItem" (click)="noThanksFun()">
+        <i class="fa fa-close"></i>
+    </span> 
+    <div class="subscription-changing-room-component-frame"> <!--  *ngIf="noThanks" -->
+        <div class="changing-room-hall">
+            <div class="heading">
+                <img src="/assets/subscribe-heading.png" alt="">
+            </div>
+            
+            <div class="img-model">
+                <img src="/assets/model.png" alt="">
+                <!-- <canvas style="width: 100%; height: 100%;" id="canvas"></canvas> -->
+            </div>
+
+            <div class="sbscribe-us">
+                <form  [formGroup]="form" (ngSubmit)="onSubmit()">
+                <div class="sbscribe-us-form">
+                    
+                <div class="form-group">
+                    <input type="text" formControlName="emailID" placeholder="email us" class="form-control"  [ngClass]="{ 'is-invalid': submitted && f.emailID.errors }"/>
+                    <!-- <small class="text-danger" *ngIf="f.emailID.invalid && (f.emailID.touched || f.emailID.dirty)">Email is required.</small> -->
+                    <div *ngIf="submitted && f.emailID.errors"> 
+                        <div *ngIf="f.emailID.errors.required || f.emailID.invalid">Please Enter Valid Email ID</div>
+                    </div>
+                    <button type="submit">SUBMIT</button>
+                    <p class="para">
+                        By submitting, you agree to these <a href="">Terms & Conditions</a>. You may unsubscribe by time. View Contact Info and <a href="">Privacy Policy</a>
+                    </p>
+                </div>  
+                      <!-- <div class="form-group">
+                    <button type="submit" (click)="onSubmit()">SUBMIT</button>
+                     </div> -->
+                </div>
+                </form>
+            </div>   
+            <!-- <div class="changing-room-model"> 
+                <div class="changing-room-model-popup">
+                    <i class="fa fa-close" id="closeItem"></i>
+                </div>
+                <canvas style="width: 500px; height: 650px;" id="canvas"></canvas>
+            </div> -->
+
+            <!-- Start : Cube Model House -->
+            <!-- <div class="cube-house">
+                <div id="cubeBox" class="show-front">
+                    <figure class="front"></figure>
+                    <figure class="back"></figure>
+                    <figure class="right"></figure>
+                    <figure class="left"></figure>
+                    <figure class="top"></figure>
+                    <figure class="bottom"></figure>
+                </div>
+            </div>  -->
+        </div>
+    </div>
+</div>
+
+
+
+
+ 
+<!-- Modal -->
+<!-- <div class="modal fade" id="termNndCondition" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h3 class="modal-title">TERMS, CONDITIONS AND NOTICES <small>Important Legal Information</small></h3>
+        </div>
+        <div class="modal-body">
+          term and Condition contert here
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div class="modal fade" id="privacypolicy" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Privacy and Policy</h4>
+        </div>
+        <div class="modal-body">
+            <app-privacyCookies> </app-privacyCookies>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+        </div>
+    </div>
+    </div>
+
+-->

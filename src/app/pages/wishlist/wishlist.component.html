@@ -1,0 +1,66 @@
+<div class="muahh-container">
+  <div class="container-fluid body-wrapper">
+    <div class="col-md-12">
+      <h2 class="red text-uppercase">Wish list</h2>
+      <hr>
+      <div class="wishlist-cart-component">
+        <div class="container-fluid">
+          <div class="repeat-cart row">
+            <div class="col-sm-12 col-xs-12">
+              <div class="row wishlist-header">
+                <div class="col-sm-8"><b>Items</b></div>
+                <div class="col-sm-2"><b>Added Date</b></div>
+                <div class="col-sm-2 text-right"><b>Price</b></div>
+              </div>
+              
+              <div class="row repeat-wishlist" *ngFor="let item of wishList">
+                <div class="col-sm-2 col-xs-4">
+                  <figure>
+                    <a [routerLink]="['/product-details', (item?.product_id)? item?.product_id : item?.id]"><img class="img-responsive" [src]="(item?.thumbnail)? item.thumbnail: item?.products?.thumbnail" alt="{{item}}" /></a>
+                  </figure>
+                </div>
+                <div class="col-sm-4 col-xs-4">
+                  <div class="product-name">
+                    <a class="red" [routerLink]="['/product-details', (item?.product_id)? item?.product_id : item?.id]"><h3>{{(item?.name)? item.name: item?.products?.name}}</h3></a>
+                  </div>
+                  <div class="a1 fs12 mb10"> product variations | In Stock </div>
+                  <div class="a2 fs12"> <span>Color </span>{{item.default_variant_options[0].name}} <span> 
+                    
+                   </span> </div>
+                  <div class="a2 fs12"> <span>Size </span>  <span> {{item.default_variant_options[1].name}}</span> </div> 
+                  <!-- <div class="a2 fs12">
+                    <span>Qty </span>
+                   <span>
+                      <select [id]="Qty.key" [(ngModel)]="Qty.key">
+                         <option *ngFor="let opt of Qty" [value]="opt.key">{{opt.value}}</option>
+                      </select> 
+                      </span> 
+                  </div> -->
+                </div>
+                <div class="col-sm-2 col-xs-4">
+                  <span class="remove-product" (click)="removeWishListItem(item?.id)"><i class="fa fa-close red"></i>
+                    <a href="javascript:void(0)"> Remove Product
+                    </a></span> <br>
+                  <span class="remove-product" (click)="editWishListItem(item?.id)"><i class="fa fa-edit red"></i> <a href="javascript:void(0)"> Edit
+                      Product
+                    </a></span> <br>
+                  <span class="remove-product"><i class="fa icon icon-trail-room-grey red"></i> <a href="javascript:void(0)"
+                      [routerLink]="['/changing-room']">
+                      View in Changing Room </a></span>
+                </div>
+                <div class="col-sm-2 col-xs-4">
+                  <span>Sep 2, 2018</span>
+                </div>
+                <div class="col-sm-2 col-xs-4 text-right" style="border-left:1px solid red;">
+                  <h2>&pound; {{(item?.variations?.price)? item?.variations?.price: item?.variations[0]?.price}}</h2>
+                  <button class="btn btn-muahh" (click)="qtyAddToCart(item)">ADD TO CART</button>
+                </div>
+              </div>
+              <div class="a1 mt10 price red" *ngIf="WishListLength <= 0">YOUR WISHLIST IS EMPTY</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

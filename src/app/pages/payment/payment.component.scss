@@ -1,0 +1,23 @@
+ul, li{
+    margin: 0; padding: 0; list-style: none;
+}
+
+.merchandise-subtotal{
+    // border: 1px solid red;
+    display: flex; align-items: center; background: #fdf2f2;
+    width: 100%;
+    h1, h2{ margin: 0;}
+    h1{
+        font-size: 28px;
+        // font-weight: bold;
+        color: #049a00;
+    }
+    h2{
+        font-size: 20px;  
+    }
+    li{
+        padding: 15px;
+        // border: 1px solid green;
+        width: 100%;
+    }
+}

@@ -1,0 +1,382 @@
+@import '../styles/scss/_core/_mixins.scss'; 
+@import '../styles/scss/_core/_breakpoints.scss'; 
+
+.subscribe-box{
+    position: fixed;
+    background: #fff;
+    //width: 500px;
+    left: 50%;
+    top: 50%;
+    // margin-left: -250px;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+
+    #closeItem{
+        position: absolute;
+        top:-10px;
+        right: -10px;
+        z-index: 99999;
+        background: #900411;
+        height:30px;
+        width: 30px;
+        border-radius:50%;
+        text-align: center;
+        padding-top:5px;
+        cursor: pointer;
+        .fa{
+            font-size: 15px;
+            color: #fff;
+        }
+    }
+
+    &::before{
+        content: '';
+        display: inline-block;
+        background: rgba(0,0,0, 0.5);
+        top: -100%;
+        left: 50%;
+        position: fixed;
+        width: 8000px;
+        height: 8000px;
+        z-index: -1;
+
+    }
+    &::after{
+        content: '';
+        display: inline-block;
+        background: rgba(0,0,0, 0.5);
+        top: -100%;
+        right: 50%;
+        position: fixed;
+        width: 8000px;
+        height: 8000px;
+        z-index: -1;
+    }
+
+    // .newsletter-box {
+    //     padding: 20px;
+    //     background-color: #f1f1f1;
+  
+    //     button{
+    //         width: 49%;
+    //         padding: 12px;
+    //         margin: 8px 0;
+    //         display: inline-block;
+    //         border: 1px solid #ccc;
+    //         background-color: #910311;
+    //         color: white;
+    //         border: none;
+    //     }
+    // }
+    // h2{
+    //     margin: 0;
+    // }
+    // input[type=text], input[type=submit] {
+    //     width: 100%;
+    //     padding: 12px;
+    //     margin: 8px 0;
+    //     display: inline-block;
+    //     border: 1px solid #ccc;
+    //     box-sizing: border-box;
+    // }
+    
+    // input[type=checkbox] {
+    //     margin-top: 16px;
+    // }
+    
+    // input[type=submit] {
+    //     background-color: #910311;
+    //     color: white;
+    //     border: none;
+    // }
+    
+    // input[type=submit]:hover {
+    //     opacity: 0.8;
+    // }
+}
+
+
+.subscription-changing-room-component-frame {
+   // border: 1px solid red;
+    //position: fixed;
+    height: 715px;
+    width: 512px;
+    margin: 0 auto;
+    //border: 1px solid red;
+    overflow: hidden;
+    z-index: 999;
+    background: #f3f0ea;
+    &.fixed{
+        position: fixed;
+        height: 100%;
+        width: 1300px;
+        z-index: 99;
+        background: #fff;
+        top: 0;
+        //bottom: 0;
+        left: 50%;
+        margin-left: -650px;
+        box-shadow: 0 0 0 10000px #fbfaf8;
+    }
+
+    @include breakpoint(xs){
+        height: 480px;
+        width: 320px;
+    }
+    
+ 
+    .changing-room-hall {
+        overflow: hidden;
+        position: absolute;
+        z-index: 11;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        // border:1px solid red;
+
+        .heading{
+            // border:1px solid red;
+            position: absolute;
+            // top: 20px;
+            padding-top:15px; 
+            width: 100%;
+            height: 110px;
+            z-index: 11;
+            text-align: center;
+
+            img {
+                width: auto;
+                @include breakpoint (xs) {
+                    width: 170px;
+                }
+            }
+        }
+        .img-model{
+           // border:1px solid red;
+            position: absolute;
+            top: 110px;
+            bottom: 110px;
+            width: 100%;
+            height: auto;
+            text-align: center;
+            overflow: hidden;
+            z-index: 11;
+
+            @include breakpoint(xs){
+                bottom: 120px;
+                top: 75px;
+            }
+
+            img{
+                width: auto;
+                height: 100%;
+
+                @include breakpoint(xs){
+                    width: 250px;
+                    height: auto;
+                }
+            }
+        }
+        .sbscribe-us{
+            position: absolute;
+            bottom: 10px;
+            left: 88px;
+            width: 335px;
+            z-index: 11;
+
+            @include breakpoint (xs){
+                left: 15px;
+                width: 290px;
+            }
+
+            input{
+                padding: 6px;
+                border: 1px solid #900411;
+                color: #333;
+                width: 73%;
+                float: left;
+            }
+            button{
+                padding: 6px 12px;
+                border: 1px solid #900411;
+                background: #900411;
+                color: #fff;
+                width: 25%;
+                float: right;
+            }
+            p.para{
+                text-align: justify;
+                font-size: 12px;
+                line-height: 16px;
+                padding: 5px 0;
+                overflow: hidden;
+                display: block;
+                clear: both;
+                a{
+                    color: #900411;
+                }
+            }
+
+        }
+        .changing-room-model {
+            width: 500px;
+            left: 50%;
+            margin-left: -250px;
+            position: absolute;
+            bottom: 0px;
+            z-index: 12;
+            
+        }
+    }
+
+    .cube-house {
+        width: 100%;
+        height: 100%;
+        margin: 0 auto 40px;
+        border: 1px solid #CCC;
+        -webkit-perspective: 1000px;
+        -moz-perspective: 1000px;
+        -o-perspective: 1000px;
+        perspective: 1000px;
+    }
+     
+    #cubeBox {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        -webkit-transform-style: preserve-3d;
+        -moz-transform-style: preserve-3d;
+        -o-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        @include transition (transform 1s);
+        figure {
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 0px solid black;
+        }
+        &.panels-backface-invisible figure {
+            -webkit-backface-visibility: hidden;
+            -moz-backface-visibility: hidden;
+            -o-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+        .front {
+            background: transparent;
+            @include transform (translateZ(100px));
+        }
+        .back {
+            @include transform (rotateX(-180deg) translateZ(280px));
+            background: radial-gradient(#fbfaf8, #dbd3c2);
+        }
+        .right {
+            @include transform (rotateY(90deg) translateZ(114px));
+            background: linear-gradient(to right, #fbfaf8, #efebe2);
+            width: 792px;
+            left: 0;
+            border: 5px solid #e8e4db;
+        }
+        .left {
+            @include transform (rotateY(-90deg) translateZ(114px));
+            background: linear-gradient(to left,#fbfaf8, #efebe2);
+            width: 792px;
+            right: 0;
+            border: 5px solid #e8e4db;
+        }
+        .top {
+            @include transform (rotateX(90deg) translateZ(110px));
+            background: linear-gradient(to top, #fbfaf8, #efebe2);
+            border: 5px solid #e8e4db;
+            bottom: 0;
+            height: 1206px;
+        }
+        .bottom {
+            @include transform (rotateX(-90deg) translateZ(110px));
+            background: linear-gradient(to bottom, #fbfaf8, #efebe2);
+            top: 0;
+            height: 1206px;
+            border: 5px solid #e8e4db;
+        }
+        &.show-front {
+            @include transform (translateZ(-150px));
+        }
+    }
+    
+    #cubeBox-pop {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        -webkit-transform-style: preserve-3d;
+        -moz-transform-style: preserve-3d;
+        -o-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        @include transition (transform 1s);
+        figure {
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 0px solid black;
+        }
+        &.panels-backface-invisible figure {
+            -webkit-backface-visibility: hidden;
+            -moz-backface-visibility: hidden;
+            -o-backface-visibility: hidden;
+            backface-visibility: hidden;
+        }
+        .front {
+            background: transparent;
+            @include transform (translateZ(100px));
+        }
+        .back {
+            @include transform (rotateX(-180deg) translateZ(382px));
+            background: radial-gradient(#fbfaf8, #dbd3c2);
+        }
+        .right {
+            @include transform (rotateY(90deg) translateZ(404px));
+            //background: rgba(246, 243, 238, 0.7);
+            background: linear-gradient(to right, #fbfaf8, #efebe2);
+            width: 825px;
+            right: 0;
+            border: 5px solid #e8e4db;
+        }
+        .left {
+            @include transform (rotateY(-90deg) translateZ(404px));
+            background: linear-gradient(to left,#fbfaf8, #efebe2);
+            width: 825px;
+            left: 0;
+            border: 5px solid #e8e4db;
+        }
+        .top {
+            @include transform (rotateX(90deg) translateZ(401px));
+            background: linear-gradient(to top, #fbfaf8, #efebe2);
+            border: 5px solid #e8e4db;
+            top: 0;
+            height: 800px;
+        }
+        .bottom {
+            @include transform (rotateX(-90deg) translateZ(401px));
+            background: linear-gradient(to bottom, #fbfaf8, #efebe2);
+            bottom: 0;
+            height: 800px;
+            border: 5px solid #e8e4db;
+        }
+        &.show-front {
+            @include transform (translateZ(-400px));
+        }
+    }
+
+
+}

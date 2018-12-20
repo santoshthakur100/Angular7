@@ -1,0 +1,243 @@
+@import '../../../styles/scss/_core/_mixins.scss'; 
+@import '../../../styles/scss/_core/_breakpoints.scss'; 
+
+
+.product-details {
+    margin-top: 120px;
+    @include breakpoint(xs){
+        margin-top: 0px;
+    }
+}
+
+
+
+.addSubBtn {
+    .qty {
+        height: 37px;
+        width: auto;
+        padding: 10px 20px;
+        background: #eee;
+        border: #ccc;
+    }
+    .qty-txt {
+        background: transparent;
+        border: 0;
+    }
+}
+
+.pick-color {
+    margin: 10px 0px;
+}
+
+.pick-color li {
+    float: left;
+    margin-right: 15px;
+}
+
+.pick-color li a {
+    width: 36px;
+    height: 36px;
+    display: block;
+    border-radius: 50%;
+}
+
+.pick-color li a.gray {
+    background: #9e9ba1;
+}
+
+.pick-color li a.gl {
+    background: #d80039;
+}
+
+.pick-color li a.orange {
+    background: #dd3333;
+}
+
+.pick-color li a.blue {
+    background: #3562b6;
+}
+
+.pick-color li a.active {
+    border: solid 1px #000;
+}
+
+.complete-look .row-sm {
+    width: 555px;
+    float: left;
+}
+
+.complete-look .colmn {
+    float: left;
+    margin-right: 32px;
+}
+
+.complete-this-look {
+    .owl-next,
+    .owl-prev {
+        background: #fff;
+        padding: 0px;
+        margin: 0;
+        font-size: 12px;
+        color: #d80039;
+        &:hover {
+            background: #fde7e6;
+        }
+    }
+}
+
+// Tab
+.muahh-product-detail-tab {
+    // width: 100%;
+    // float: left;
+    display: flex;
+    margin-top: 10px;
+   // border:1px solid red;
+    @include breakpoint (xs){
+        margin-top: 0px;        
+    }
+    button {
+        background-color: #e3e3e3;
+        color: #999;
+        float: left;
+        width: 100%;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 7px 15px 5px 15px;
+        margin: 0 20px;
+       // transition: all 0.3s linear;
+        font-size: 16px;
+        border-radius: 15px 15px 0 0;
+        position: relative;
+
+        &::before, &::after{
+            content: '';
+            display: inline-block;
+            position: absolute; 
+            top: 0; 
+            background: #e3e3e3;
+            width: 33px; 
+            height: 34px;
+            z-index: -1;
+        }
+
+        &::before{
+            left: 0; margin-left: -10px; 
+            border-radius: 15px 0 0 0;
+            transform: skew(-24deg); 
+            // border-left: 34px solid transparent;
+            // border-right: 00px solid transparent;
+            // border-bottom: 34px solid #e3e3e3;
+            // transition: all 0.3s linear;
+        }
+
+        &::after{
+            right: 0; top: 0; margin-right: -10px; 
+            border-radius: 0 15px 0 0;
+            transform: skew(24deg); 
+            // width: 0; 
+            // height: 0; 
+            // border-right: 34px solid transparent;
+            // border-left: 00px solid transparent;
+            // border-bottom: 34px solid #e3e3e3;
+            // transition: all 0.3s linear;
+        }
+
+        @include breakpoint(xs){
+            border-radius: 0;
+            margin-top: 5px;
+            margin-right: 0;
+            width: 50%;
+            box-sizing: border-box;
+            display: inline-block;
+            //border: 1px solid #fff;
+            border-right-width: 1px;
+            border-left-width: 1px;
+            border-color:#fff;
+            border-left-style: solid; 
+            border-right-style: solid; 
+        }
+        .icon {
+            display: none;
+            &:before {
+                color: #ccc;
+                position: absolute;
+                left: 50%;
+                margin-left: -11px;
+                font-size: 22px;
+            }
+        }
+        &:hover {
+            background-color: #fde7e6;
+            color: #a90313;
+            &::before{border-bottom: 34px solid #fde7e6;}
+            &::after{border-bottom: 34px solid #fde7e6;}
+        }
+        &.active {
+            background-color: #fde7e6;
+            border-bottom: 1px solid #a90313;
+            color: #a90313;
+            margin-top: -8px;
+            &::before{border-bottom: 42px solid #fde7e6;}
+            &::after{border-bottom: 42px solid #fde7e6;}
+            @include breakpoint(xs){
+                margin-top: 5px;
+                padding: 7px 15px 5px 15px;
+            }
+            .icon {
+                display: block;
+                @include breakpoint(xs){
+                    display: none;
+                }
+                &:before {
+                    color: #a90313;
+                }
+            }
+        }
+    }
+}
+
+.color-link {
+    float: left;
+    margin-right: 15px;
+    img {
+        overflow: hidden;
+        transition: 0.8s all linear;
+        &:hover {
+            transform: rotate(360deg);
+        }
+    }
+}
+
+.muahh-product-detail-tabcontent {
+    border: 1px solid #e3e3e3;
+   // overflow: hidden;
+    .tabcontent {
+        display: none;
+        padding: 12px;
+        border: 5px solid green;
+        .colors {
+            margin: 0;
+            float: left;
+            li {
+                padding: 10px;
+                box-shadow: 0 2px 2px #888;
+                display: inline-block;
+                margin: 5px 0;
+                height: 40px;
+                width: 40px;
+                border-radius: 50%;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.topright {
+    float: right;
+    cursor: pointer;
+    font-size: 28px;
+    &:hover {
+        color: red;
+    }
+}

@@ -1,0 +1,133 @@
+<main class="top-space">
+    <div class="container">
+        <div class="row linkingDemo">
+            <div class="list-group">
+                <a [routerLink]="['/home']" class="list-group-item">Home </a>
+                <a [routerLink]="['/aboutus']" class="list-group-item">About Us </a>
+                <a [routerLink]="['/myaccount']" class="list-group-item">My Account </a>
+                <a [routerLink]="['/guides']" class="list-group-item">Guides</a>
+                <a [routerLink]="['/product-details']" class="list-group-item">Product Details </a>
+                <a [routerLink]="['/offers']" class="list-group-item">Offers </a>
+                <a [routerLink]="['/testpage']" class="list-group-item">Test Page </a>
+                <a target="_blank" href="payment.html" class="list-group-item">Payment -Done</a>
+                <a target="_blank" href="personal-changing-room.html" class="list-group-item">Personal Changing Room</a>
+            </div>
+        </div>
+    </div>
+</main>
+
+
+<!-- Start : Add To Cart Section -->
+<div class="add-two-cart-component hide">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3" style="padding-right: 0">
+                <figure>
+                    <img class="img-responsive" src="https://dm.victoriassecret.com/p/126x168/tif/f1/63/f1636ab1f9274236a94ec8975621d327/005_SU18_BRA_040_SS_023_e6970977.jpg" alt="Image">
+                </figure>
+            </div>
+            <div class="col-sm-6">
+                <div class="a1 fs16">Dream Angels Demi Bra</div>
+                <div class="a2 fs12">DG-377-319</div>
+                <div class="a3 fs12">Color:	Purple Crosssdye (E3R)</div>
+                <div class="a4 fs12">Size:	32A</div>
+            </div>
+            <div class="col-sm-3 text-right">
+                <div>&pound; 64</div>
+                <div>Qty 1</div>
+            </div>
+        </div>
+
+        <div class="row sec2">
+            <div class="col-sm-6">5 Items In Your Shopping Bag</div>
+            <div class="col-sm-6 text-right">Subtotal ₹ 23,328.60</div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6"><button class="btn fluid btn-muahh">Continue Shopping</button></div>
+            <div class="col-sm-6"><button class="btn fluid btn-muahh">Check Out</button></div>
+        </div>
+    </div>
+</div>
+<!-- End : Add To Cart Section -->
+
+
+<!-- Start : Shopping Cart Component -->
+<div class="shopping-cart-component">
+    <i class="close fa fa-close"></i>
+    <div class="container-fluid">
+
+        <div class="sub-total">
+            Sub Total : &pound; 621 
+        </div>
+        <div class="row" style="padding: 10px 0">
+            <div class="col-xs-12">
+                <button class="btn fluid btn-muahh">Sign In</button>
+                <hr>
+                <button class="btn fluid btn-muahh">Check Out as a guest</button>
+            </div>
+        </div>
+
+        <div class="repeat-cart" *ngFor="let x of [1,2,3,4,5]">
+            <div class="row">
+                <div class="col-sm-5 col-xs-5" style="padding-right: 0;">
+                    <figure>
+                        <img class="img-responsive" src="https://dm.victoriassecret.com/p/148x199/tif/60/6d/606d91c6be584cf4b22a2106c522701c/006_SU18_BRA_043_SS_062_e6970987.jpg" alt="{{x}}" />
+                    </figure>
+                </div>
+                <div class="col-sm-7 col-xs-7">
+                    <div class="fs16 red"> Mini Floral Lace Bustier </div> 
+                    <div class="a1 fs12 mb10"> DG-377-323 | In Stock </div>
+                    <div class="a2 fs12"> <span>Color </span> <span> Purple Crossdye (E3R) </span> </div>
+                    <div class="a2 fs12"> <span>Size </span> <span> 32B</span> </div>
+                    <div class="a2 fs12"> <span>Qty </span> <span> 1  </span> </div>
+                    <div class="a1 mt10 price red"> &pound; 621 </div>
+                </div>
+            </div>
+
+            <div class="row sec2">
+                <div class="col-sm-6 col-xs-6"><button class="btn fluid btn-muahh-bdr">Edit</button></div>
+                <div class="col-sm-6 col-xs-6"><button class="btn fluid btn-muahh-bdr">Remove</button></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End : Shopping Cart Component -->
+
+
+<!--Start : Forget Password -->
+<div class="forget-password-component hide">
+    
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12"> 
+                <h2>Forgot Password sadss</h2>
+                <p>Please enter the email address you used to create 
+                    your account and we will send you a 
+                    link to reset your password.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <form action="">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="" id="email" />
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd">Confirm Email</label>
+                        <input type="email" class="" id="c-email">
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                        <input type="checkbox"> Remember me</label>
+                    </div>
+                    <button type="submit" class="btn btn-muahh">Submit</button>
+                </form>
+            </div>
+        </div>
+        
+    </div>
+    
+</div>
+<!--End : Forget Password -->
